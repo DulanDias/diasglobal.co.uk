@@ -761,6 +761,110 @@ class DiasGlobalApp {
     }
 }
 
+// ===== INTERACTIVE TIMELINE =====
+class TimelineManager {
+    constructor() {
+        this.currentStep = 1;
+        this.totalSteps = 5;
+        this.init();
+    }
+
+    init() {
+        const timelineContainer = document.querySelector('.timeline-container');
+        if (!timelineContainer) return;
+
+        this.setupTimelineControls();
+        this.setupAutoPlay();
+    }
+
+    setupTimelineControls() {
+        const timelineMilestones = document.querySelectorAll('.timeline-milestone');
+
+        timelineMilestones.forEach((milestone, index) => {
+            milestone.addEventListener('click', () => {
+                this.goToStep(index + 1);
+            });
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                this.previousStep();
+            } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                this.nextStep();
+            }
+        });
+    }
+
+    setupAutoPlay() {
+        // Auto-play functionality with pause on hover
+        let autoPlayInterval;
+        const timelineContainer = document.querySelector('.timeline-container');
+
+        if (timelineContainer) {
+            timelineContainer.addEventListener('mouseenter', () => {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                }
+            });
+
+            timelineContainer.addEventListener('mouseleave', () => {
+                this.startAutoPlay();
+            });
+
+            // Start auto-play after 3 seconds
+            setTimeout(() => {
+                this.startAutoPlay();
+            }, 3000);
+        }
+    }
+
+    startAutoPlay() {
+        const timelineContainer = document.querySelector('.timeline-container');
+        if (!timelineContainer) return;
+
+        // Clear existing interval
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+        }
+
+        // Start new auto-play interval
+        this.autoPlayInterval = setInterval(() => {
+            this.nextStep();
+        }, 4000); // Change step every 4 seconds
+    }
+
+    goToStep(step) {
+        if (step < 1 || step > this.totalSteps) return;
+
+        this.currentStep = step;
+        this.updateTimeline();
+    }
+
+    nextStep() {
+        if (this.currentStep < this.totalSteps) {
+            this.goToStep(this.currentStep + 1);
+        } else {
+            this.goToStep(1); // Loop back to first step
+        }
+    }
+
+    previousStep() {
+        if (this.currentStep > 1) {
+            this.goToStep(this.currentStep - 1);
+        } else {
+            this.goToStep(this.totalSteps); // Loop to last step
+        }
+    }
+
+    updateTimeline() {
+        // All milestones are now always enabled, no active state management needed
+        // Timeline is now purely visual with hover effects
+    }
+}
+
 // ===== UTILITY FUNCTIONS =====
 function debounce(func, wait) {
     let timeout;
@@ -913,10 +1017,12 @@ class ThemeManager {
 document.addEventListener('DOMContentLoaded', () => {
     const app = new DiasGlobalApp();
     const themeManager = new ThemeManager();
+    const timelineManager = new TimelineManager();
     
     // Make app globally available for debugging
     window.diasGlobalApp = app;
     window.themeManager = themeManager;
+    window.timelineManager = timelineManager;
     
     // Ensure theme is applied after DOM is fully loaded
     setTimeout(() => {
