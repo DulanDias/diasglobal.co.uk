@@ -961,6 +961,23 @@ section {
     background: var(--color-bg-light);
 }
 
+/* Reset all link styles in insights section */
+.insights a {
+    text-decoration: none !important;
+}
+
+.insights a:visited {
+    color: inherit !important;
+}
+
+.insights a:active {
+    color: inherit !important;
+}
+
+.insights a:focus {
+    outline: none !important;
+}
+
 .insights-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1034,6 +1051,30 @@ section {
     margin-bottom: var(--space-md);
     color: var(--color-text);
     line-height: 1.4;
+}
+
+.blog-title-link {
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: color var(--transition-fast);
+    display: block;
+}
+
+.blog-title-link:hover {
+    color: var(--color-accent) !important;
+}
+
+.blog-title-link:visited {
+    color: inherit !important;
+}
+
+.blog-title-link:active {
+    color: inherit !important;
+}
+
+.blog-title-link:focus {
+    color: inherit !important;
+    outline: none !important;
 }
 
 .blog-excerpt {
@@ -1623,13 +1664,26 @@ section {
 }
 
 .blog-card-title a {
-    color: var(--color-text);
-    text-decoration: none;
+    color: var(--color-text) !important;
+    text-decoration: none !important;
     transition: color var(--transition-normal);
 }
 
 .blog-card-title a:hover {
-    color: var(--color-accent);
+    color: var(--color-accent) !important;
+}
+
+.blog-card-title a:visited {
+    color: var(--color-text) !important;
+}
+
+.blog-card-title a:active {
+    color: var(--color-text) !important;
+}
+
+.blog-card-title a:focus {
+    color: var(--color-text) !important;
+    outline: none !important;
 }
 
 .blog-card-excerpt {

@@ -161,6 +161,25 @@
     [data-theme="dark"] .breadcrumb-item a:hover {
         color: var(--primary-color);
     }
+
+    /* Featured Icon Styles */
+    .article-featured-icon {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .featured-icon {
+        width: 80px;
+        height: 80px;
+        color: var(--primary-color);
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Dark theme icon adjustments */
+    [data-theme="dark"] .featured-icon {
+        color: var(--primary-color);
+    }
     </style>
 </head>
 <body>
@@ -230,6 +249,14 @@
         <div class="container">
             <article>
                 <header class="article-header">
+                    <div class="article-featured-icon">
+                        <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2Z" fill="currentColor"/>
+                            <path d="M21 9V7C21 5.9 20.1 5 19 5H17.8C17.4 3.8 16.3 3 15 3H13C11.7 3 10.6 3.8 10.2 5H9C7.9 5 7 5.9 7 7V9C5.9 9 5 9.9 5 11V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V11C19 9.9 18.1 9 17 9H21Z" fill="currentColor"/>
+                            <path d="M12 12C13.1 12 14 12.9 14 14C14 15.1 13.1 16 12 16C10.9 16 10 15.1 10 14C10 12.9 10.9 12 12 12Z" fill="currentColor"/>
+                            <path d="M8 14C8 13.4 8.4 13 9 13H15C15.6 13 16 13.4 16 14V17C16 17.6 15.6 18 15 18H9C8.4 18 8 17.6 8 17V14Z" fill="currentColor"/>
+                        </svg>
+                    </div>
                     <div class="article-meta">
                         <span>August 31, 2025</span>
                         <span>5 min read</span>

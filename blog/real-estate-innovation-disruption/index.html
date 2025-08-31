@@ -161,6 +161,25 @@
     [data-theme="dark"] .breadcrumb-item a:hover {
         color: var(--primary-color);
     }
+
+    /* Featured Icon Styles */
+    .article-featured-icon {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .featured-icon {
+        width: 80px;
+        height: 80px;
+        color: var(--primary-color);
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Dark theme icon adjustments */
+    [data-theme="dark"] .featured-icon {
+        color: var(--primary-color);
+    }
     </style>
 </head>
 <body>
@@ -230,6 +249,13 @@
         <div class="container">
             <article>
                 <header class="article-header">
+                    <div class="article-featured-icon">
+                        <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                            <path d="M19 15L19.74 17.74L22.5 18.5L19.74 19.26L19 22L18.26 19.26L15.5 18.5L18.26 17.74L19 15Z" fill="currentColor"/>
+                            <path d="M5 15L5.74 17.74L8.5 18.5L5.74 19.26L5 22L4.26 19.26L1.5 18.5L4.26 17.74L5 15Z" fill="currentColor"/>
+                        </svg>
+                    </div>
                     <div class="article-meta">
                         <span>August 31, 2025</span>
                         <span>7 min read</span>
