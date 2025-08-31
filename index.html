@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dias Global Limited | Next-Generation Investment & Innovation</title>
+    <meta name="description" content="Dias Global Limited is a UK family global holding company focused on real assets, technology, and entrepreneurial ventures. We deploy patient capital with rigorous operational discipline and a long‑term owner's mindset to build enduring value.">
+    
+    <!-- SEO & Social -->
+    <link rel="canonical" href="https://diasglobal.co.uk/">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#0f0f23">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dias Global Limited | Next-Generation Investment & Innovation">
+    <meta property="og:description" content="Investing in real assets, technology, and entrepreneurial ventures with patient capital and long‑term ownership.">
+    <meta property="og:image" content="https://diasglobal.co.uk/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Three.js -->
+    <script type="module">
+        import * as THREE from 'https://unpkg.com/three@0.158.0/build/three.module.js';
+        window.THREE = THREE;
+    </script>
+    
+    <!-- reCAPTCHA - Load only on production -->
+    <!-- Temporarily disabled
+    <script>
+        // Only load reCAPTCHA if not on localhost
+        if (window.location.hostname !== 'localhost' && 
+            window.location.hostname !== '127.0.0.1' && 
+            window.location.hostname !== '0.0.0.0' &&
+            !window.location.hostname.includes('localhost') &&
+            !window.location.hostname.includes('127.0.0.1')) {
+            
+            const script = document.createElement('script');
+            script.src = 'https://www.google.com/recaptcha/api.js';
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+        }
+    </script>
+    -->
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="dias-global-dark.png" alt="Dias Global" class="nav-logo" data-logo-dark="dias-global-dark.png" data-logo-light="dias-global-light.png">
+            </div>
+            <div class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#sectors" class="nav-link">Sectors</a>
+                <a href="#approach" class="nav-link">Approach</a>
+                <a href="#opportunities" class="nav-link">Opportunities</a>
+                <a href="#insights" class="nav-link">Insights</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="theme-toggle">
+                <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
+                    <i class="fas fa-moon theme-toggle-icon dark-icon"></i>
+                    <i class="fas fa-sun theme-toggle-icon light-icon"></i>
+                    <span class="theme-toggle-slider"></span>
+                </button>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Three.js -->
+    <section class="hero" id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="hero-line">Building the Future</span>
+                    <span class="hero-line">Through Innovation</span>
+                </h1>
+                <p class="hero-subtitle">
+                    A next-generation family global holding company investing in real assets, 
+                    cutting-edge technology, and entrepreneurial ventures with patient capital 
+                    and long-term vision.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Start a Conversation</a>
+                    <a href="#sectors" class="btn btn-secondary">Explore Sectors</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">About Us</span>
+                <h2 class="section-title">A Family Global Holding Company</h2>
+                <p class="section-subtitle">
+                    We deploy patient capital with rigorous operational discipline and a long-term 
+                    owner's mindset to build enduring value across multiple sectors.
+                </p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">🌍</div>
+                    <h3>Global Perspective</h3>
+                    <p>London-based with a truly global outlook, we identify opportunities across markets and geographies.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Selective Approach</h3>
+                    <p>We focus on quality over quantity, investing only in ventures that align with our long-term vision.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Operational Excellence</h3>
+                    <p>Beyond capital, we provide strategic guidance and operational support to maximize value creation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sectors Section -->
+    <section class="sectors" id="sectors">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Investment Sectors</span>
+                <h2 class="section-title">Where We Invest</h2>
+                <p class="section-subtitle">
+                    Our diversified portfolio spans three core sectors, each carefully selected 
+                    for long-term growth potential and value creation.
+                </p>
+            </div>
+            <div class="sectors-grid">
+                <div class="sector-card" data-sector="real-estate">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                    </div>
+                    <h3>Real Estate</h3>
+                    <p>Strategic investments in prime real estate assets across residential, commercial, and hospitality sectors.</p>
+                    <ul class="sector-features">
+                        <li>Prime location acquisitions</li>
+                        <li>Value-add development</li>
+                        <li>Hospitality management</li>
+                        <li>Portfolio optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="sector-card" data-sector="technology">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Technology & Innovation</h3>
+                    <p>Cutting-edge technology investments and R&D initiatives focused on breakthrough innovations.</p>
+                    <ul class="sector-features">
+                        <li>Applied research & development</li>
+                        <li>Product incubation</li>
+                        <li>Strategic partnerships</li>
+                        <li>Emerging tech focus</li>
+                    </ul>
+                </div>
+                
+                <div class="sector-card" data-sector="entrepreneurship">
+                    <div class="sector-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>Entrepreneurial Ventures</h3>
+                    <p>Angel investing and venture support for promising entrepreneurs, startups, and early-stage businesses.</p>
+                    <ul class="sector-features">
+                        <li>Angel investment capital</li>
+                        <li>Startup mentorship</li>
+                        <li>Business development</li>
+                        <li>Growth acceleration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="approach" id="approach">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Our Approach</span>
+                <h2 class="section-title">Patient Capital, Long-term Vision</h2>
+                <p class="section-subtitle">
+                    We believe in the power of patient capital and strategic partnerships to create 
+                    sustainable, long-term value for all stakeholders.
+                </p>
+            </div>
+            <div class="approach-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Discovery & Due Diligence</h3>
+                        <p>Comprehensive analysis of opportunities, market dynamics, and growth potential.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Strategic Investment</h3>
+                        <p>Patient capital deployment with clear value creation strategies and milestones.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Operational Support</h3>
+                        <p>Active partnership providing strategic guidance, operational expertise, and network access.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Value Realization</h3>
+                        <p>Long-term value creation through sustainable growth and strategic exits when appropriate.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Opportunities Section -->
+    <section class="opportunities" id="opportunities">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Investment Opportunities</span>
+                <h2 class="section-title">Join Our Investment Network</h2>
+                <p class="section-subtitle">
+                    Access exclusive investment opportunities across our portfolio of carefully curated 
+                    ventures, from early-stage startups to established real estate projects.
+                </p>
+            </div>
+            
+            <div class="opportunities-grid">
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Technology Ventures</h3>
+                    <p>Invest in cutting-edge technology startups and R&D initiatives with high growth potential.</p>
+                    <div class="opportunity-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Minimum Investment:</span>
+                            <span class="detail-value">£25,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Expected Returns:</span>
+                            <span class="detail-value">15-40% annually</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Investment Period:</span>
+                            <span class="detail-value">3-7 years</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                    </div>
+                    <h3>Real Estate Projects</h3>
+                    <p>Participate in premium real estate developments and property investment opportunities.</p>
+                    <div class="opportunity-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Minimum Investment:</span>
+                            <span class="detail-value">£50,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Expected Returns:</span>
+                            <span class="detail-value">8-15% annually</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Investment Period:</span>
+                            <span class="detail-value">5-10 years</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>Startup Fund</h3>
+                    <p>Access our curated portfolio of early-stage startups with proven traction and market potential.</p>
+                    <div class="opportunity-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Minimum Investment:</span>
+                            <span class="detail-value">£10,000</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Expected Returns:</span>
+                            <span class="detail-value">20-60% annually</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Investment Period:</span>
+                            <span class="detail-value">2-5 years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section class="insights" id="insights">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Latest Insights</span>
+                <h2 class="section-title">Thought Leadership</h2>
+                <p class="section-subtitle">
+                    Explore our latest insights on investment trends, technology innovation, and market opportunities.
+                </p>
+            </div>
+            
+            <div class="insights-grid">
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <div class="blog-card-overlay">
+                            <span class="blog-category">Technology</span>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">December 15, 2024</span>
+                            <span class="blog-read-time">5 min read</span>
+                        </div>
+                        <h3 class="blog-title">The Future of AI Investment: Trends to Watch in 2024</h3>
+                        <p class="blog-excerpt">
+                            Explore the key AI investment opportunities and emerging trends that will define the artificial intelligence landscape in 2024 and beyond.
+                        </p>
+                        <a href="blog/ai-investment-trends-2024/index.html" class="blog-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <div class="blog-card-overlay">
+                            <span class="blog-category">Real Estate</span>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">December 10, 2024</span>
+                            <span class="blog-read-time">7 min read</span>
+                        </div>
+                        <h3 class="blog-title">Real Estate Innovation & Disruption: The Proptech Revolution</h3>
+                        <p class="blog-excerpt">
+                            How technology is transforming the real estate sector and creating new investment opportunities through innovation and disruption.
+                        </p>
+                        <a href="blog/real-estate-innovation-disruption/index.html" class="blog-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <div class="blog-card-overlay">
+                            <span class="blog-category">Entrepreneurship</span>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">December 5, 2024</span>
+                            <span class="blog-read-time">6 min read</span>
+                        </div>
+                        <h3 class="blog-title">Building Entrepreneurial Ecosystems: A Strategic Approach</h3>
+                        <p class="blog-excerpt">
+                            Discover how strategic investment in entrepreneurial ecosystems can drive innovation and create sustainable value across multiple sectors.
+                        </p>
+                        <a href="blog/building-entrepreneurial-ecosystem/index.html" class="blog-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Get In Touch</span>
+                <h2 class="section-title">Start a Conversation</h2>
+                <p class="section-subtitle">
+                    Whether you're an entrepreneur with a vision, a technology innovator, 
+                    or a real estate professional, we'd love to hear from you.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>71–75 Shelton Street, Covent Garden<br>London WC2H 9JQ, United Kingdom</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🏢</div>
+                        <div>
+                            <h4>Company</h4>
+                            <p>Dias Global Limited<br>Company No. 16594865</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest-type">Interest Type</label>
+                        <select id="interest-type" name="interest-type" required>
+                            <option value="">Select your primary interest</option>
+                            <option value="investment">Investment Opportunities</option>
+                            <option value="partnership">Partnership/Strategic Alliance</option>
+                            <option value="consultation">Consultation/Advisory</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Investment-specific fields (shown when investment is selected) -->
+                    <div class="form-group conditional-field" id="investment-fields" style="display: none;">
+                        <label for="investment-sector">Investment Sector</label>
+                        <select id="investment-sector" name="investment-sector">
+                            <option value="">Select preferred sector</option>
+                            <option value="real-estate">Real Estate</option>
+                            <option value="technology">Technology & Innovation</option>
+                            <option value="startups">Startups & Early Stage</option>
+                            <option value="mixed">Mixed Portfolio</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group conditional-field" id="capacity-field" style="display: none;">
+                        <label for="investment-capacity">Investment Capacity</label>
+                        <select id="investment-capacity" name="investment-capacity">
+                            <option value="">Select investment range</option>
+                            <option value="5000-10000">£5,000 - £10,000</option>
+                            <option value="10000-25000">£10,000 - £25,000</option>
+                            <option value="25000-75000">£25,000 - £75,000</option>
+                            <option value="75000-200000">£75,000 - £200,000</option>
+                            <option value="200000+">£200,000+</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Partnership/Consultation fields -->
+                    <div class="form-group conditional-field" id="partnership-fields" style="display: none;">
+                        <label for="partnership-area">Area of Interest</label>
+                        <select id="partnership-area" name="partnership-area">
+                            <option value="">Select area of interest</option>
+                            <option value="real-estate">Real Estate</option>
+                            <option value="technology">Technology & Innovation</option>
+                            <option value="entrepreneurship">Entrepreneurial Ventures</option>
+                            <option value="general">General Business</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your interests, investment experience, or any questions..."></textarea>
+                    </div>
+                    
+                    <!-- reCAPTCHA -->
+                    <!-- Temporarily disabled
+                    <div class="form-group recaptcha-container">
+                        <div class="g-recaptcha" data-sitekey="6LdeJrkrAAAAAEQsrruntcO6Sk1iwYA6Ot2wJuX1"></div>
+                    </div>
+                    -->
+                    
+
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <p class="form-note">By submitting this form, you may receive updates about investment opportunities. We respect your privacy and will never share your information.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="dias-global-dark.png" alt="Dias Global" class="footer-logo" data-logo-dark="dias-global-dark.png" data-logo-light="dias-global-light.png">
+                    <p>Building enduring value through patient capital and strategic innovation.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Sectors</h4>
+                        <a href="#sectors">Real Estate</a>
+                        <a href="#sectors">Technology</a>
+                        <a href="#sectors">Entrepreneurship</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <a href="#about">About</a>
+                        <a href="#approach">Approach</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Dias Global Limited. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy-policy/index.html" class="legal-link">Privacy Policy</a>
+                    <a href="terms-of-use/index.html" class="legal-link">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top-btn" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html> 
