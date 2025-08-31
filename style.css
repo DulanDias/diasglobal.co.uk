@@ -2835,14 +2835,7 @@ footer
 }
 
 .timeline-line::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--color-accent);
-    z-index: 1;
+    display: none;
 }
 
 .timeline-milestone {
