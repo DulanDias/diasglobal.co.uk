@@ -3,17 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Dias Global Limited</title>
-    <meta name="description" content="Insights and perspectives on investment, technology, and entrepreneurial ventures from Dias Global Limited.">
     
-    <!-- SEO & Social -->
+    <!-- Primary SEO Meta Tags -->
+    <title>Investment Blog & Insights | Dias Global Limited | Real Estate, Technology & Entrepreneurship</title>
+    <meta name="description" content="Expert insights on investment strategies, technology trends, and entrepreneurial ventures. Discover thought leadership content from Dias Global Limited on real estate investment, AI trends, and building successful business ecosystems.">
+    <meta name="keywords" content="investment blog, real estate investment, technology investment, entrepreneurial ventures, investment insights, business strategy, AI investment trends, UK investment blog">
+    <meta name="author" content="Dias Global Limited">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://diasglobal.co.uk/blog/">
-    <meta name="robots" content="index,follow">
-    <meta name="theme-color" content="#0f0f23">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Blog | Dias Global Limited">
-    <meta property="og:description" content="Insights and perspectives on investment, technology, and entrepreneurial ventures from Dias Global Limited.">
+    <meta property="og:url" content="https://diasglobal.co.uk/blog/">
+    <meta property="og:title" content="Investment Blog & Insights | Dias Global Limited">
+    <meta property="og:description" content="Expert insights on investment strategies, technology trends, and entrepreneurial ventures from Dias Global Limited.">
     <meta property="og:image" content="https://diasglobal.co.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Dias Global Limited">
+    <meta property="og:locale" content="en_GB">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://diasglobal.co.uk/blog/">
+    <meta property="twitter:title" content="Investment Blog & Insights | Dias Global Limited">
+    <meta property="twitter:description" content="Expert insights on investment strategies, technology trends, and entrepreneurial ventures from Dias Global Limited.">
+    <meta property="twitter:image" content="https://diasglobal.co.uk/og-image.png">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#0f0f23">
+    <meta name="msapplication-TileColor" content="#0f0f23">
+    
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Dias Global Investment Blog",
+        "description": "Expert insights on investment strategies, technology trends, and entrepreneurial ventures",
+        "url": "https://diasglobal.co.uk/blog/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Dias Global Limited",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://diasglobal.co.uk/logo.png"
+            }
+        },
+        "blogPost": [
+            {
+                "@type": "BlogPosting",
+                "headline": "The Future of AI Investment: Trends to Watch in 2025",
+                "url": "https://diasglobal.co.uk/blog/ai-investment-trends-2024/",
+                "datePublished": "2024-08-31",
+                "dateModified": "2024-08-31",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Dias Global Limited"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Dias Global Limited"
+                }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Strategic Real Estate Investment: The Renovation-to-Rental Model",
+                "url": "https://diasglobal.co.uk/blog/real-estate-investment-strategy-2025/",
+                "datePublished": "2024-08-31",
+                "dateModified": "2024-08-31",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Dias Global Limited"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Dias Global Limited"
+                }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Real Estate Innovation: How Technology is Disrupting Traditional Markets",
+                "url": "https://diasglobal.co.uk/blog/real-estate-innovation-disruption/",
+                "datePublished": "2024-08-31",
+                "dateModified": "2024-08-31",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Dias Global Limited"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Dias Global Limited"
+                }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Building Entrepreneurial Ecosystems: The Foundation of Innovation",
+                "url": "https://diasglobal.co.uk/blog/building-entrepreneurial-ecosystem/",
+                "datePublished": "2024-08-31",
+                "dateModified": "2024-08-31",
+                "author": {
+                    "@type": "Organization",
+                    "name": "Dias Global Limited"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Dias Global Limited"
+                }
+            }
+        ]
+    }
+    </script>
     
     <!-- Favicon -->
     <link rel="icon" href="../logo-dark.svg" type="image/svg+xml">
@@ -22,6 +124,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Styles -->
     <link rel="stylesheet" href="../style.css">
@@ -32,17 +137,28 @@
         <div class="nav-container">
             <div class="nav-brand">
                 <a href="../index.html">
-                    <img src="../dias-global-dark.png" alt="Dias Global" class="nav-logo">
+                    <img src="../dias-global-dark.png" alt="Dias Global" class="nav-logo" data-logo-dark="../dias-global-dark.png" data-logo-light="../dias-global-light.png">
                 </a>
             </div>
             <div class="nav-menu">
                 <a href="../index.html#about" class="nav-link">About</a>
                 <a href="../index.html#sectors" class="nav-link">Sectors</a>
                 <a href="../index.html#approach" class="nav-link">Approach</a>
-                <a href="../index.html#opportunities" class="nav-link">Opportunities</a>
-                <a href="index.html" class="nav-link active">Blog</a>
+                <a href="../index.html#insights" class="nav-link">Insights</a>
                 <a href="../index.html#contact" class="nav-link">Contact</a>
             </div>
+            <div class="theme-toggle">
+                <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
+                    <i class="fas fa-moon theme-toggle-icon dark-icon"></i>
+                    <i class="fas fa-sun theme-toggle-icon light-icon"></i>
+                    <span class="theme-toggle-slider"></span>
+                </button>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -68,14 +184,14 @@
                     </div>
                     <div class="blog-card-content">
                         <div class="blog-card-meta">
-                            <span class="blog-date">December 15, 2024</span>
+                            <span class="blog-date">August 31, 2025</span>
                             <span class="blog-read-time">5 min read</span>
                         </div>
                         <h2 class="blog-card-title">
-                            <a href="ai-investment-trends-2024/index.html">The Future of AI Investment: Trends to Watch in 2024</a>
+                            <a href="ai-investment-trends-2024/index.html">The Future of AI Investment: Trends to Watch in 2025</a>
                         </h2>
                         <p class="blog-card-excerpt">
-                            As artificial intelligence continues to reshape industries, we explore the key investment opportunities and emerging trends that will define the AI landscape in 2024 and beyond.
+                            As artificial intelligence continues to reshape industries, we explore the key investment opportunities and emerging trends that will define the AI landscape in 2025 and beyond.
                         </p>
                         <div class="blog-card-tags">
                             <span class="tag">AI</span>
@@ -88,12 +204,37 @@
                 <!-- Article 2 -->
                 <article class="blog-card">
                     <div class="blog-card-image">
+                        <img src="../blog-assets/real-estate-strategy.jpg" alt="Real Estate Investment Strategy">
+                        <div class="blog-card-category">Real Estate Investment</div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span class="blog-date">August 31, 2025</span>
+                            <span class="blog-read-time">8 min read</span>
+                        </div>
+                        <h2 class="blog-card-title">
+                            <a href="real-estate-investment-strategy-2025/index.html">Strategic Real Estate Investment: The Renovation-to-Rental Model</a>
+                        </h2>
+                        <p class="blog-card-excerpt">
+                            Discover Dias Global's innovative approach to real estate investment: purchasing undervalued properties, executing strategic renovations, and creating sustainable rental income streams.
+                        </p>
+                        <div class="blog-card-tags">
+                            <span class="tag">Real Estate</span>
+                            <span class="tag">Investment</span>
+                            <span class="tag">Renovation</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
                         <img src="../blog-assets/real-estate-future.jpg" alt="Real Estate Innovation">
                         <div class="blog-card-category">Real Estate</div>
                     </div>
                     <div class="blog-card-content">
                         <div class="blog-card-meta">
-                            <span class="blog-date">December 10, 2024</span>
+                            <span class="blog-date">August 31, 2025</span>
                             <span class="blog-read-time">7 min read</span>
                         </div>
                         <h2 class="blog-card-title">
@@ -110,7 +251,7 @@
                     </div>
                 </article>
 
-                <!-- Article 3 -->
+                <!-- Article 4 -->
                 <article class="blog-card">
                     <div class="blog-card-image">
                         <img src="../blog-assets/entrepreneurial-ecosystem.jpg" alt="Entrepreneurial Ecosystem">
@@ -118,14 +259,14 @@
                     </div>
                     <div class="blog-card-content">
                         <div class="blog-card-meta">
-                            <span class="blog-date">December 5, 2024</span>
+                            <span class="blog-date">August 31, 2025</span>
                             <span class="blog-read-time">6 min read</span>
                         </div>
                         <h2 class="blog-card-title">
-                            <a href="building-entrepreneurial-ecosystem/index.html">Building a Thriving Entrepreneurial Ecosystem: Lessons from Global Success Stories</a>
+                            <a href="building-entrepreneurial-ecosystem/index.html">Building Entrepreneurial Ecosystems: The Foundation of Innovation</a>
                         </h2>
                         <p class="blog-card-excerpt">
-                            Explore the key factors that contribute to successful entrepreneurial ecosystems and how patient capital can accelerate innovation and growth.
+                            Discover how Dias Global is creating and nurturing entrepreneurial ecosystems through strategic investments, mentorship programs, and collaborative partnerships.
                         </p>
                         <div class="blog-card-tags">
                             <span class="tag">Entrepreneurship</span>
@@ -138,31 +279,134 @@
         </div>
     </main>
 
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Get In Touch</span>
+                <h2 class="section-title">Start a Conversation</h2>
+                <p class="section-subtitle">
+                    Whether you're an entrepreneur with a vision, a technology innovator, 
+                    or a real estate professional, we'd love to hear from you.
+                </p>
+            </div>
+
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xzzvkqpa" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest-type">Interest Type</label>
+                        <select id="interest-type" name="interest-type" required>
+                            <option value="">Select your primary interest</option>
+                            <option value="investment">Investment Opportunities</option>
+                            <option value="partnership">Partnership/Strategic Alliance</option>
+                            <option value="consultation">Consultation/Advisory</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Investment-specific fields (shown when investment is selected) -->
+                <div class="form-row conditional-field" id="investment-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="investment-sector">Investment Sector</label>
+                        <select id="investment-sector" name="investment-sector">
+                            <option value="">Select preferred sector</option>
+                            <option value="real-estate">Real Estate</option>
+                            <option value="technology">Technology & Innovation</option>
+                            <option value="startups">Startups & Early Stage</option>
+                            <option value="mixed">Mixed Portfolio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="investment-capacity">Investment Capacity</label>
+                        <select id="investment-capacity" name="investment-capacity">
+                            <option value="">Select investment range</option>
+                            <option value="5000-10000">£5,000 - £10,000</option>
+                            <option value="10000-25000">£10,000 - £25,000</option>
+                            <option value="25000-75000">£25,000 - £75,000</option>
+                            <option value="75000-200000">£75,000 - £200,000</option>
+                            <option value="200000+">£200,000+</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Partnership/Consultation fields -->
+                <div class="form-row conditional-field" id="partnership-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="partnership-area">Area of Interest</label>
+                        <select id="partnership-area" name="partnership-area">
+                            <option value="">Select area of interest</option>
+                            <option value="real-estate">Real Estate</option>
+                            <option value="technology">Technology & Innovation</option>
+                            <option value="entrepreneurship">Entrepreneurial Ventures</option>
+                            <option value="general">General Business</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="3" required placeholder="Tell us about your interests, investment experience, or any questions..."></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <p class="form-note">By submitting this form, you may receive updates about investment opportunities. We respect your privacy and will never share your information.</p>
+                </div>
+            </form>
+            
+            <div class="contact-info-simple">
+                <h3>Or alternatively, write to us.</h3>
+                <p>
+                    <strong>Dias Global Limited</strong><br>
+                    Company No. 16594865<br>
+                    71–75 Shelton Street, Covent Garden<br>
+                    London WC2H 9JQ, United Kingdom
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="../dias-global-dark.png" alt="Dias Global" class="footer-logo">
-                    <p>Building enduring value through patient capital and strategic innovation.</p>
+                    <a href="../index.html">
+                        <img src="../dias-global-dark.png" alt="Dias Global" class="footer-logo" data-logo-dark="../dias-global-dark.png" data-logo-light="../dias-global-light.png">
+                    </a>
+                    <p>Building the future through innovation with patient capital and long-term vision across real assets, technology, and entrepreneurial ventures.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-section">
-                        <h4>Sectors</h4>
-                        <a href="../index.html#sectors">Real Estate</a>
-                        <a href="../index.html#sectors">Technology</a>
-                        <a href="../index.html#sectors">Entrepreneurship</a>
+                        <h4>Company</h4>
+                        <a href="../index.html#about">About Us</a>
+                        <a href="../index.html#sectors">Investment Sectors</a>
+                        <a href="../index.html#approach">Our Approach</a>
                     </div>
                     <div class="footer-section">
-                        <h4>Company</h4>
-                        <a href="../index.html#about">About</a>
-                        <a href="../index.html#approach">Approach</a>
-                        <a href="../index.html#contact">Contact</a>
+                        <h4>Resources</h4>
+                        <a href="../index.html#insights">Insights</a>
+                        <a href="../privacy-policy/index.html">Privacy Policy</a>
+                        <a href="../terms-of-use/index.html">Terms of Use</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> Dias Global Limited. All rights reserved.</p>
+                <p>&copy; <span id="current-year">2024</span> Dias Global Limited. All rights reserved.</p>
                 <div class="footer-legal">
                     <a href="../privacy-policy/index.html" class="legal-link">Privacy Policy</a>
                     <a href="../terms-of-use/index.html" class="legal-link">Terms of Use</a>
@@ -172,9 +416,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script>
-        // Update current year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+    <script src="../script.js"></script>
 </body>
 </html>

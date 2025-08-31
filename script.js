@@ -423,18 +423,6 @@ class DiasGlobalApp {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Temporarily disabled reCAPTCHA validation
-            /*
-            // Validate reCAPTCHA only if not on localhost
-            if (!isLocalhost) {
-                const recaptchaResponse = grecaptcha.getResponse();
-                if (!recaptchaResponse) {
-                    this.showNotification('Please complete the reCAPTCHA verification.', 'error');
-                    return;
-                }
-            }
-            */
-            
             const formData = new FormData(form);
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
@@ -444,23 +432,59 @@ class DiasGlobalApp {
             submitBtn.disabled = true;
 
             try {
-                // Simulate form submission (replace with actual endpoint)
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // Show success message
-                this.showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
-                form.reset();
-                
-                // Temporarily disabled reCAPTCHA reset
-                /*
-                // Reset reCAPTCHA only if not on localhost
-                if (!isLocalhost && typeof grecaptcha !== 'undefined') {
-                    grecaptcha.reset();
+                // Use Formspree's recommended approach for AJAX submissions
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Try to parse JSON response
+                    try {
+                        const result = await response.json();
+                        if (result.ok) {
+                            this.showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+                            form.reset();
+                            this.resetConditionalFields();
+                        } else {
+                            throw new Error(result.error || 'Form submission failed');
+                        }
+                    } catch (jsonError) {
+                        // If JSON parsing fails, assume success (Formspree sometimes returns HTML)
+                        this.showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+                        form.reset();
+                        this.resetConditionalFields();
+                    }
+                } else {
+                    throw new Error('Form submission failed');
                 }
-                */
                 
             } catch (error) {
-                this.showNotification('There was an error sending your message. Please try again.', 'error');
+                console.error('Form submission error:', error);
+                
+                // If AJAX fails, try traditional form submission
+                this.showNotification('Submitting form...', 'info');
+                
+                // Create a temporary form and submit it
+                const tempForm = document.createElement('form');
+                tempForm.method = 'POST';
+                tempForm.action = form.action;
+                tempForm.style.display = 'none';
+                
+                // Copy form data
+                for (let [key, value] of formData.entries()) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value;
+                    tempForm.appendChild(input);
+                }
+                
+                document.body.appendChild(tempForm);
+                tempForm.submit();
             } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
@@ -505,6 +529,26 @@ class DiasGlobalApp {
                 if (partnershipFields) partnershipFields.style.display = 'block';
             }
         });
+    }
+
+    resetConditionalFields() {
+        const investmentFields = document.getElementById('investment-fields');
+        const capacityField = document.getElementById('capacity-field');
+        const partnershipFields = document.getElementById('partnership-fields');
+
+        // Hide all conditional fields
+        if (investmentFields) investmentFields.style.display = 'none';
+        if (capacityField) capacityField.style.display = 'none';
+        if (partnershipFields) partnershipFields.style.display = 'none';
+
+        // Reset select values
+        const investmentSector = document.getElementById('investment-sector');
+        const investmentCapacity = document.getElementById('investment-capacity');
+        const partnershipArea = document.getElementById('partnership-area');
+
+        if (investmentSector) investmentSector.value = '';
+        if (investmentCapacity) investmentCapacity.value = '';
+        if (partnershipArea) partnershipArea.value = '';
     }
 
     setupInvestmentForm() {
@@ -595,24 +639,8 @@ class DiasGlobalApp {
         notification.innerHTML = `
             <div class="notification-content">
                 <span class="notification-message">${message}</span>
-                <button class="notification-close">&times;</button>
+                <button class="notification-close" aria-label="Close notification">&times;</button>
             </div>
-        `;
-
-        // Add styles
-        notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: ${type === 'success' ? '#00d4ff' : type === 'error' ? '#ff4757' : '#1a1a2e'};
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            z-index: 10000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            max-width: 400px;
         `;
 
         document.body.appendChild(notification);
@@ -759,8 +787,18 @@ class ThemeManager {
     }
 
     init() {
+        // Apply theme immediately
         this.applyTheme();
-        this.setupEventListeners();
+        
+        // Setup event listeners with a small delay to ensure DOM is ready
+        setTimeout(() => {
+            this.setupEventListeners();
+        }, 100);
+        
+        // Apply theme again after a longer delay to ensure all elements are loaded
+        setTimeout(() => {
+            this.applyTheme();
+        }, 500);
     }
 
     applyTheme() {
@@ -770,11 +808,42 @@ class ThemeManager {
     }
 
     updateLogos() {
-        const logos = document.querySelectorAll('[data-logo-dark][data-logo-light]');
-        logos.forEach(logo => {
+        // Try multiple selectors to catch all logo types
+        const selectors = [
+            '[data-logo-dark][data-logo-light]',
+            '.nav-logo[data-logo-dark][data-logo-light]',
+            '.simple-logo[data-logo-dark][data-logo-light]',
+            '.footer-logo[data-logo-dark][data-logo-light]'
+        ];
+        
+        let allLogos = [];
+        selectors.forEach(selector => {
+            const logos = document.querySelectorAll(selector);
+            allLogos.push(...logos);
+        });
+        
+        // Remove duplicates
+        const uniqueLogos = [...new Set(allLogos)];
+        
+        uniqueLogos.forEach((logo, index) => {
             const isLight = this.theme === 'light';
-            const newSrc = isLight ? logo.dataset.logoLight : logo.dataset.logoDark;
-            logo.src = newSrc;
+            const darkSrc = logo.getAttribute('data-logo-dark');
+            const lightSrc = logo.getAttribute('data-logo-light');
+            const newSrc = isLight ? lightSrc : darkSrc;
+            
+            if (newSrc) {
+                // Force update the logo
+                logo.src = newSrc;
+                
+                // Force a reload by setting src to empty first, then to new value
+                setTimeout(() => {
+                    const tempSrc = logo.src;
+                    logo.src = '';
+                    setTimeout(() => {
+                        logo.src = newSrc;
+                    }, 10);
+                }, 50);
+            }
         });
     }
 
@@ -792,7 +861,9 @@ class ThemeManager {
     setupEventListeners() {
         const toggleBtn = document.querySelector('.theme-toggle-btn');
         if (toggleBtn) {
-            toggleBtn.addEventListener('click', () => this.toggleTheme());
+            toggleBtn.addEventListener('click', () => {
+                this.toggleTheme();
+            });
         }
 
         // Listen for system theme changes
@@ -813,6 +884,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Make app globally available for debugging
     window.diasGlobalApp = app;
     window.themeManager = themeManager;
+    
+    // Ensure theme is applied after DOM is fully loaded
+    setTimeout(() => {
+        themeManager.applyTheme();
+    }, 200);
 });
 
 // ===== PERFORMANCE OPTIMIZATION =====
@@ -822,6 +898,14 @@ const throttledScrollHandler = throttle(() => {
 }, 16);
 
 window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+
+// ===== THEME FALLBACK =====
+// Ensure theme is applied when window loads (fallback for timing issues)
+window.addEventListener('load', () => {
+    if (window.themeManager) {
+        window.themeManager.applyTheme();
+    }
+});
 
 // ===== ERROR HANDLING =====
 window.addEventListener('error', (e) => {

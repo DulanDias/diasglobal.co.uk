@@ -1,0 +1,99 @@
+<!-- Contact Form Component -->
+<section class="contact-form-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-eyebrow">Get In Touch</span>
+            <h2 class="section-title">Start a Conversation</h2>
+            <p class="section-subtitle">
+                Whether you're an entrepreneur with a vision, a technology innovator, 
+                or a real estate professional, we'd love to hear from you.
+            </p>
+        </div>
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/xzzvkqpa" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="interest-type">Interest Type</label>
+                    <select id="interest-type" name="interest-type" required>
+                        <option value="">Select your primary interest</option>
+                        <option value="investment">Investment Opportunities</option>
+                        <option value="partnership">Partnership/Strategic Alliance</option>
+                        <option value="consultation">Consultation/Advisory</option>
+                        <option value="general">General Inquiry</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Investment-specific fields (shown when investment is selected) -->
+            <div class="form-row conditional-field" id="investment-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="investment-sector">Investment Sector</label>
+                    <select id="investment-sector" name="investment-sector">
+                        <option value="">Select preferred sector</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="technology">Technology & Innovation</option>
+                        <option value="startups">Startups & Early Stage</option>
+                        <option value="mixed">Mixed Portfolio</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="investment-capacity">Investment Capacity</label>
+                    <select id="investment-capacity" name="investment-capacity">
+                        <option value="">Select investment range</option>
+                        <option value="5000-10000">£5,000 - £10,000</option>
+                        <option value="10000-25000">£10,000 - £25,000</option>
+                        <option value="25000-75000">£25,000 - £75,000</option>
+                        <option value="75000-200000">£75,000 - £200,000</option>
+                        <option value="200000+">£200,000+</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Partnership/Consultation fields -->
+            <div class="form-row conditional-field" id="partnership-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="partnership-area">Area of Interest</label>
+                    <select id="partnership-area" name="partnership-area">
+                        <option value="">Select area of interest</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="technology">Technology & Innovation</option>
+                        <option value="entrepreneurship">Entrepreneurial Ventures</option>
+                        <option value="general">General Business</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="3" required placeholder="Tell us about your interests, investment experience, or any questions..."></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+                <p class="form-note">By submitting this form, you may receive updates about investment opportunities. We respect your privacy and will never share your information.</p>
+                            </div>
+            </form>
+            
+            <div class="contact-info-simple">
+                <h3>Or alternatively, write to us.</h3>
+                <p>
+                    <strong>Dias Global Limited</strong><br>
+                    Company No. 16594865<br>
+                    71–75 Shelton Street, Covent Garden<br>
+                    London WC2H 9JQ, United Kingdom
+                </p>
+            </div>
+        </div>
+    </section>

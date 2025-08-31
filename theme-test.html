@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Test - Dias Global</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Simple Header with Logo and Theme Toggle -->
+    <header class="simple-header">
+        <div class="container">
+            <div class="simple-header-content">
+                <a href="index.html" class="logo-link">
+                    <img src="dias-global-dark.png" alt="Dias Global" class="simple-logo" data-logo-dark="dias-global-dark.png" data-logo-light="dias-global-light.png">
+                </a>
+                <div class="theme-toggle">
+                    <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
+                        <i class="fas fa-moon theme-toggle-icon dark-icon"></i>
+                        <i class="fas fa-sun theme-toggle-icon light-icon"></i>
+                        <span class="theme-toggle-slider"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Test Content -->
+    <main style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+        <h1>Theme Switching Test</h1>
+        <p>This page tests the theme switching functionality on internal pages.</p>
+        
+        <div style="margin: 2rem 0; padding: 1rem; background: var(--color-bg-card); border-radius: var(--radius-md);">
+            <h2>Current Theme: <span id="current-theme">Loading...</span></h2>
+            <p>Click the theme toggle button in the header to test the logo switching.</p>
+            <p>The logo should switch between dark and light versions when you toggle the theme.</p>
+            <p><strong>Logo Status:</strong> <span id="logo-status">Checking...</span></p>
+            <p><strong>Toggle Button Status:</strong> <span id="toggle-status">Checking...</span></p>
+        </div>
+        
+        <div style="margin: 2rem 0; padding: 1rem; background: var(--color-bg-card); border-radius: var(--radius-md);">
+            <h3>Manual Test Controls</h3>
+            <button onclick="manualToggleTheme()" style="margin: 0.5rem; padding: 0.5rem 1rem; background: var(--color-accent); color: white; border: none; border-radius: 4px; cursor: pointer;">
+                Manual Toggle Theme
+            </button>
+            <button onclick="manualUpdateLogos()" style="margin: 0.5rem; padding: 0.5rem 1rem; background: var(--color-accent); color: white; border: none; border-radius: 4px; cursor: pointer;">
+                Manual Update Logos
+            </button>
+            <button onclick="checkLogoPaths()" style="margin: 0.5rem; padding: 0.5rem 1rem; background: var(--color-accent); color: white; border: none; border-radius: 4px; cursor: pointer;">
+                Check Logo Paths
+            </button>
+        </div>
+        
+        <div style="margin: 2rem 0;">
+            <h3>Test Links:</h3>
+            <ul>
+                <li><a href="index.html">Home Page</a></li>
+                <li><a href="blog/ai-investment-trends-2024/index.html">Blog Page</a></li>
+                <li><a href="privacy-policy/index.html">Privacy Policy</a></li>
+                <li><a href="terms-of-use/index.html">Terms of Use</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Update current theme display
+        function updateThemeDisplay() {
+            const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+            document.getElementById('current-theme').textContent = theme;
+            
+            // Check logo status
+            const logo = document.querySelector('.simple-logo');
+            if (logo) {
+                const logoStatus = `Found: ${logo.src.includes('dark') ? 'Dark' : 'Light'} logo`;
+                document.getElementById('logo-status').textContent = logoStatus;
+            } else {
+                document.getElementById('logo-status').textContent = 'Logo not found';
+            }
+            
+            // Check toggle button status
+            const toggleBtn = document.querySelector('.theme-toggle-btn');
+            if (toggleBtn) {
+                document.getElementById('toggle-status').textContent = 'Toggle button found and working';
+            } else {
+                document.getElementById('toggle-status').textContent = 'Toggle button not found';
+            }
+        }
+        
+        // Manual theme toggle function
+        function manualToggleTheme() {
+            if (window.themeManager) {
+                console.log('Manual theme toggle called');
+                window.themeManager.toggleTheme();
+            } else {
+                console.log('ThemeManager not found');
+            }
+        }
+        
+        // Manual logo update function
+        function manualUpdateLogos() {
+            if (window.themeManager) {
+                console.log('Manual logo update called');
+                window.themeManager.updateLogos();
+            } else {
+                console.log('ThemeManager not found');
+            }
+        }
+        
+        // Check logo paths function
+        function checkLogoPaths() {
+            const logo = document.querySelector('.simple-logo');
+            if (logo) {
+                console.log('Logo element found:', logo);
+                console.log('Current src:', logo.src);
+                console.log('data-logo-dark:', logo.dataset.logoDark);
+                console.log('data-logo-light:', logo.dataset.logoLight);
+                console.log('Theme:', document.documentElement.getAttribute('data-theme'));
+            } else {
+                console.log('Logo element not found');
+            }
+        }
+        
+        // Update on load and theme change
+        document.addEventListener('DOMContentLoaded', updateThemeDisplay);
+        
+        // Listen for theme changes
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                    updateThemeDisplay();
+                }
+            });
+        });
+        
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-theme']
+        });
+        
+        // Update status after a delay to ensure everything is loaded
+        setTimeout(updateThemeDisplay, 1000);
+        
+        // Log when page loads
+        console.log('Theme test page loaded');
+        console.log('ThemeManager available:', !!window.themeManager);
+    </script>
+</body>
+</html>
