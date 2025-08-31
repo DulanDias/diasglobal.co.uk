@@ -327,6 +327,11 @@ body {
     display: none;
 }
 
+/* Hide mobile header theme toggle on desktop */
+.mobile-header-theme-toggle {
+    display: none;
+}
+
 .theme-toggle-btn {
     position: relative;
     width: 60px;
@@ -375,8 +380,17 @@ body {
     z-index: 2;
     position: relative;
     display: inline-block;
-    font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands";
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands", Arial, sans-serif;
     font-weight: 900;
+}
+
+/* Fallback Unicode characters if Font Awesome fails to load */
+.font-awesome-fallback .theme-toggle-icon.dark-icon::before {
+    content: "🌙";
+}
+
+.font-awesome-fallback .theme-toggle-icon.light-icon::before {
+    content: "☀️";
 }
 
 .theme-toggle-btn:hover .theme-toggle-icon {
@@ -2069,13 +2083,81 @@ section {
         display: none;
     }
     
-    /* Show mobile theme toggle */
-    .mobile-theme-toggle {
+    /* Show centered mobile theme toggle in header */
+    .mobile-header-theme-toggle {
         display: flex;
         justify-content: center;
-        margin-top: var(--space-lg);
-        padding-top: var(--space-lg);
-        border-top: 1px solid var(--color-border);
+        align-items: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1002;
+    }
+    
+    .mobile-header-theme-toggle .theme-toggle-btn {
+        width: 60px;
+        height: 30px;
+        border-radius: 15px;
+        background: var(--color-bg-light);
+        border: 2px solid var(--color-border);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 6px;
+        overflow: hidden;
+    }
+    
+    .mobile-header-theme-toggle .theme-toggle-btn:hover {
+        border-color: var(--color-accent);
+        transform: scale(1.05);
+    }
+    
+    .mobile-header-theme-toggle .theme-toggle-slider {
+        position: absolute;
+        left: 2px;
+        width: 22px;
+        height: 22px;
+        background: var(--color-accent);
+        border-radius: 50%;
+        transition: all var(--transition-fast);
+        z-index: 1;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    [data-theme="light"] .mobile-header-theme-toggle .theme-toggle-slider {
+        left: calc(100% - 24px);
+    }
+    
+    .mobile-header-theme-toggle .theme-toggle-icon {
+        font-size: 12px;
+        color: var(--color-text-muted);
+        transition: all var(--transition-fast);
+        z-index: 2;
+        position: relative;
+        display: inline-block;
+        font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands", Arial, sans-serif;
+        font-weight: 900;
+    }
+    
+    /* Fallback Unicode characters for mobile theme toggle */
+    .font-awesome-fallback .mobile-header-theme-toggle .theme-toggle-icon.dark-icon::before {
+        content: "🌙";
+    }
+    
+    .font-awesome-fallback .mobile-header-theme-toggle .theme-toggle-icon.light-icon::before {
+        content: "☀️";
+    }
+    
+    .mobile-header-theme-toggle .theme-toggle-btn:hover .theme-toggle-icon {
+        color: var(--color-text);
+    }
+    
+    /* Hide mobile theme toggle in menu since it's now in header */
+    .mobile-theme-toggle {
+        display: none;
     }
     
     .mobile-theme-toggle .theme-toggle-btn {

@@ -343,11 +343,11 @@ class DiasGlobalApp {
             });
         });
         
-        // Add click event for mobile theme toggle
-        const mobileThemeToggle = document.querySelector('.mobile-theme-toggle .theme-toggle-btn');
-        if (mobileThemeToggle) {
-            mobileThemeToggle.addEventListener('click', (e) => {
-                console.log('Mobile theme toggle clicked');
+        // Add click event for mobile header theme toggle
+        const mobileHeaderThemeToggle = document.querySelector('.mobile-header-theme-toggle .theme-toggle-btn');
+        if (mobileHeaderThemeToggle) {
+            mobileHeaderThemeToggle.addEventListener('click', (e) => {
+                console.log('Mobile header theme toggle clicked');
                 e.stopPropagation(); // Prevent event bubbling
             });
         }
@@ -811,6 +811,9 @@ class ThemeManager {
         setTimeout(() => {
             this.applyTheme();
         }, 500);
+        
+        // Check if Font Awesome is loaded and add fallback if needed
+        this.checkFontAwesome();
     }
 
     applyTheme() {
@@ -885,6 +888,24 @@ class ThemeManager {
                 this.applyTheme();
             }
         });
+    }
+    
+    checkFontAwesome() {
+        // Simple check for Font Awesome - if the moon icon doesn't render properly, use fallback
+        setTimeout(() => {
+            const moonIcon = document.querySelector('.fa-moon');
+            if (moonIcon) {
+                const computedStyle = window.getComputedStyle(moonIcon);
+                const fontFamily = computedStyle.fontFamily;
+                
+                if (!fontFamily.includes('Font Awesome')) {
+                    document.documentElement.classList.add('font-awesome-fallback');
+                    console.log('Font Awesome not detected, using Unicode fallback');
+                } else {
+                    console.log('Font Awesome detected and loaded');
+                }
+            }
+        }, 1000); // Wait 1 second for Font Awesome to load
     }
 }
 

@@ -86,6 +86,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Ensure Font Awesome is loaded
+        if (typeof FontAwesome === 'undefined') {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+            document.head.appendChild(link);
+        }
+    </script>
+    
     <!-- Styles -->
     <link rel="stylesheet" href="../../style.css">
 </head>
@@ -104,15 +116,15 @@
                 <a href="../../index.html#approach" class="nav-link">Approach</a>
                 <a href="../../index.html#insights" class="nav-link">Insights</a>
                 <a href="../../index.html#contact" class="nav-link">Contact</a>
-                <div class="mobile-theme-toggle">
-                    <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
-                        <i class="fas fa-moon theme-toggle-icon dark-icon"></i>
-                        <i class="fas fa-sun theme-toggle-icon light-icon"></i>
-                        <span class="theme-toggle-slider"></span>
-                    </button>
-                </div>
             </div>
             <div class="theme-toggle">
+                <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
+                    <i class="fas fa-moon theme-toggle-icon dark-icon"></i>
+                    <i class="fas fa-sun theme-toggle-icon light-icon"></i>
+                    <span class="theme-toggle-slider"></span>
+                </button>
+            </div>
+            <div class="mobile-header-theme-toggle">
                 <button class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
                     <i class="fas fa-moon theme-toggle-icon dark-icon"></i>
                     <i class="fas fa-sun theme-toggle-icon light-icon"></i>
