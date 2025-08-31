@@ -16,7 +16,7 @@
         <loc>https://diasglobal.co.uk/blog/</loc>
         <lastmod>2024-12-19</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
     
     <!-- Blog Posts -->
@@ -24,10 +24,11 @@
         <loc>https://diasglobal.co.uk/blog/ai-investment-trends-2024/</loc>
         <lastmod>2024-12-19</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
         <image:image>
-            <image:loc>https://diasglobal.co.uk/blog-assets/ai-investment.jpg</image:loc>
+            <image:loc>https://diasglobal.co.uk/logo.png</image:loc>
             <image:title>AI Investment Trends 2025</image:title>
+            <image:caption>Discover the key AI investment opportunities and emerging trends that will define the artificial intelligence landscape in 2025</image:caption>
         </image:image>
     </url>
     
@@ -35,10 +36,11 @@
         <loc>https://diasglobal.co.uk/blog/real-estate-investment-strategy-2025/</loc>
         <lastmod>2024-12-19</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
         <image:image>
-            <image:loc>https://diasglobal.co.uk/blog-assets/real-estate-strategy.jpg</image:loc>
+            <image:loc>https://diasglobal.co.uk/logo.png</image:loc>
             <image:title>Real Estate Investment Strategy</image:title>
+            <image:caption>Strategic insights into real estate investment with renovation-to-rental models and market analysis</image:caption>
         </image:image>
     </url>
     
@@ -46,10 +48,11 @@
         <loc>https://diasglobal.co.uk/blog/real-estate-innovation-disruption/</loc>
         <lastmod>2024-12-19</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
         <image:image>
-            <image:loc>https://diasglobal.co.uk/blog-assets/real-estate-future.jpg</image:loc>
+            <image:loc>https://diasglobal.co.uk/logo.png</image:loc>
             <image:title>Real Estate Innovation and Disruption</image:title>
+            <image:caption>How technology is disrupting traditional real estate markets and creating new opportunities</image:caption>
         </image:image>
     </url>
     
@@ -57,10 +60,11 @@
         <loc>https://diasglobal.co.uk/blog/building-entrepreneurial-ecosystem/</loc>
         <lastmod>2024-12-19</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
         <image:image>
-            <image:loc>https://diasglobal.co.uk/blog-assets/entrepreneurial-ecosystem.jpg</image:loc>
+            <image:loc>https://diasglobal.co.uk/logo.png</image:loc>
             <image:title>Building Entrepreneurial Ecosystems</image:title>
+            <image:caption>The foundation of innovation through building successful entrepreneurial ecosystems</image:caption>
         </image:image>
     </url>
     

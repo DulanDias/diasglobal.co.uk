@@ -141,6 +141,66 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="../style.css">
+    
+    <!-- Breadcrumb Styles -->
+    <style>
+    .breadcrumb-nav {
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        padding: 0.75rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .breadcrumb-list {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+    }
+
+    .breadcrumb-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .breadcrumb-item:not(:last-child)::after {
+        content: '/';
+        margin: 0 0.5rem;
+        color: var(--text-muted);
+    }
+
+    .breadcrumb-item a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .breadcrumb-item a:hover {
+        color: var(--primary-color);
+    }
+
+    .breadcrumb-item:last-child {
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    /* Dark theme adjustments */
+    [data-theme="dark"] .breadcrumb-nav {
+        background: var(--bg-secondary);
+        border-bottom-color: var(--border-color);
+    }
+
+    [data-theme="dark"] .breadcrumb-item a {
+        color: var(--text-secondary);
+    }
+
+    [data-theme="dark"] .breadcrumb-item a:hover {
+        color: var(--primary-color);
+    }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -190,6 +250,24 @@
         </div>
     </header>
 
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/" itemprop="item">
+                        <span itemprop="name">Home</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">Blog</span>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+        </div>
+    </nav>
+
     <!-- Blog Content -->
     <main class="blog-main">
         <div class="container">
@@ -197,7 +275,7 @@
                 <!-- Article 1 -->
                 <article class="blog-card">
                     <div class="blog-card-image">
-                        <img src="../blog-assets/ai-investment.jpg" alt="AI Investment Trends">
+                        <img src="../logo.png" alt="AI Investment Trends">
                         <div class="blog-card-category">Technology</div>
                     </div>
                     <div class="blog-card-content">
@@ -222,7 +300,7 @@
                 <!-- Article 2 -->
                 <article class="blog-card">
                     <div class="blog-card-image">
-                        <img src="../blog-assets/real-estate-strategy.jpg" alt="Real Estate Investment Strategy">
+                        <img src="../logo.png" alt="Real Estate Investment Strategy">
                         <div class="blog-card-category">Real Estate Investment</div>
                     </div>
                     <div class="blog-card-content">
@@ -247,7 +325,7 @@
                 <!-- Article 3 -->
                 <article class="blog-card">
                     <div class="blog-card-image">
-                        <img src="../blog-assets/real-estate-future.jpg" alt="Real Estate Innovation">
+                        <img src="../logo.png" alt="Real Estate Innovation">
                         <div class="blog-card-category">Real Estate</div>
                     </div>
                     <div class="blog-card-content">
@@ -272,7 +350,7 @@
                 <!-- Article 4 -->
                 <article class="blog-card">
                     <div class="blog-card-image">
-                        <img src="../blog-assets/entrepreneurial-ecosystem.jpg" alt="Entrepreneurial Ecosystem">
+                        <img src="../logo.png" alt="Entrepreneurial Ecosystem">
                         <div class="blog-card-category">Entrepreneurship</div>
                     </div>
                     <div class="blog-card-content">
