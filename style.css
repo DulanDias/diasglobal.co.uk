@@ -238,6 +238,11 @@ body {
     font-weight: 500;
     transition: color var(--transition-fast);
     position: relative;
+    padding: var(--space-sm) 0;
+    display: block;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-link:hover,
@@ -286,6 +291,8 @@ body {
     border: none;
     cursor: pointer;
     padding: var(--space-xs);
+    z-index: 1002;
+    position: relative;
 }
 
 .nav-toggle span {
@@ -313,6 +320,11 @@ body {
     align-items: center;
     gap: var(--space-sm);
     margin-left: var(--space-lg);
+}
+
+/* Hide mobile theme toggle on desktop */
+.mobile-theme-toggle {
+    display: none;
 }
 
 .theme-toggle-btn {
@@ -1182,8 +1194,10 @@ section {
 }
 
 .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: var(--space-2xl);
 }
 
 .form-row {
@@ -1202,7 +1216,7 @@ section {
     font-weight: 600;
     margin-bottom: var(--space-xs);
     color: var(--color-text);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -1211,14 +1225,15 @@ section {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-xs) var(--space-sm);
     background: var(--color-bg-light);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     color: var(--color-text);
     font-family: var(--font-primary);
-    font-size: 0.9rem;
+    font-size: 1rem;
     transition: all var(--transition-fast);
+    min-height: 36px;
 }
 
 .form-group input:focus,
@@ -2012,12 +2027,17 @@ section {
         transform: translateY(-100%);
         opacity: 0;
         transition: all var(--transition-normal);
-        z-index: 999;
+        z-index: 1001;
+        pointer-events: none;
+        min-height: calc(100vh - 80px);
+        /* Ensure the menu is above other content */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
     
     .nav-menu.active {
         transform: translateY(0);
         opacity: 1;
+        pointer-events: auto;
     }
     
     .nav-menu .btn {
@@ -2027,8 +2047,101 @@ section {
         justify-content: center;
     }
     
+    /* Ensure mobile navigation links have proper touch targets */
+    .nav-menu .nav-link {
+        min-height: 48px;
+        padding: var(--space-md) 0;
+        border-bottom: 1px solid var(--color-border);
+        width: 100%;
+        text-align: left;
+    }
+    
+    .nav-menu .nav-link:last-child {
+        border-bottom: none;
+    }
+    
     .nav-toggle {
         display: flex;
+    }
+    
+    /* Hide desktop theme toggle on mobile */
+    .theme-toggle {
+        display: none;
+    }
+    
+    /* Show mobile theme toggle */
+    .mobile-theme-toggle {
+        display: flex;
+        justify-content: center;
+        margin-top: var(--space-lg);
+        padding-top: var(--space-lg);
+        border-top: 1px solid var(--color-border);
+    }
+    
+    .mobile-theme-toggle .theme-toggle-btn {
+        width: 80px;
+        height: 40px;
+        border-radius: 20px;
+    }
+    
+    .mobile-theme-toggle .theme-toggle-slider {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .mobile-theme-toggle .theme-toggle-icon {
+        font-size: 14px;
+    }
+    
+    /* Ensure mobile theme toggle is visible and properly positioned */
+    .mobile-theme-toggle {
+        display: flex;
+        justify-content: center;
+        margin-top: var(--space-lg);
+        padding-top: var(--space-lg);
+        border-top: 1px solid var(--color-border);
+        width: 100%;
+        position: relative;
+        z-index: 1003;
+    }
+    
+    /* Make sure the mobile theme toggle button is properly sized and accessible */
+    .mobile-theme-toggle .theme-toggle-btn {
+        width: 80px;
+        height: 40px;
+        border-radius: 20px;
+        background: var(--color-bg-light);
+        border: 2px solid var(--color-border);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 8px;
+        overflow: hidden;
+        position: relative;
+        z-index: 1003;
+    }
+    
+    .mobile-theme-toggle .theme-toggle-btn:hover {
+        border-color: var(--color-accent);
+        transform: scale(1.05);
+    }
+    
+    .mobile-theme-toggle .theme-toggle-slider {
+        position: absolute;
+        left: 2px;
+        width: 32px;
+        height: 32px;
+        background: var(--color-accent);
+        border-radius: 50%;
+        transition: all var(--transition-fast);
+        z-index: 1;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    [data-theme="light"] .mobile-theme-toggle .theme-toggle-slider {
+        left: calc(100% - 34px);
     }
     
     .hero-cta {
@@ -2057,12 +2170,31 @@ section {
     
     .form-row {
         grid-template-columns: 1fr;
-        gap: var(--space-md);
+        gap: var(--space-sm);
     }
     
     .contact-form {
-        padding: var(--space-2xl);
-        margin: 0 var(--space-md);
+        padding: var(--space-xl);
+        margin: 0;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: var(--space-sm) var(--space-md);
+        font-size: 1rem;
+        min-height: 40px;
+    }
+    
+    .form-group textarea {
+        min-height: 100px;
+    }
+    
+    .form-group label {
+        font-size: 1rem;
+        margin-bottom: var(--space-xs);
     }
     
     .footer-content {

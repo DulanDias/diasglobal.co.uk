@@ -326,8 +326,10 @@ class DiasGlobalApp {
         
         if (navToggle && navMenu) {
             navToggle.addEventListener('click', () => {
+                console.log('Mobile menu toggle clicked');
                 navMenu.classList.toggle('active');
                 navToggle.classList.toggle('active');
+                console.log('Menu active:', navMenu.classList.contains('active'));
             });
         }
 
@@ -335,10 +337,20 @@ class DiasGlobalApp {
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
+                console.log('Nav link clicked:', link.textContent);
                 navMenu?.classList.remove('active');
                 navToggle?.classList.remove('active');
             });
         });
+        
+        // Add click event for mobile theme toggle
+        const mobileThemeToggle = document.querySelector('.mobile-theme-toggle .theme-toggle-btn');
+        if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener('click', (e) => {
+                console.log('Mobile theme toggle clicked');
+                e.stopPropagation(); // Prevent event bubbling
+            });
+        }
     }
 
     setupScrollAnimations() {
@@ -859,12 +871,12 @@ class ThemeManager {
     }
 
     setupEventListeners() {
-        const toggleBtn = document.querySelector('.theme-toggle-btn');
-        if (toggleBtn) {
+        const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+        toggleBtns.forEach(toggleBtn => {
             toggleBtn.addEventListener('click', () => {
                 this.toggleTheme();
             });
-        }
+        });
 
         // Listen for system theme changes
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
