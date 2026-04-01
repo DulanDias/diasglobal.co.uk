@@ -4,31 +4,13 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import ContactSection from '@/components/sections/contact'
 import Breadcrumb from '@/components/breadcrumb'
+import { getPost, articleMetadata } from '@/lib/blog-posts'
+import { BlogPostingSchema } from '@/components/seo/schema-markup'
+import BlogArticleHeroImage from '@/components/blog/article-hero-image'
 
-export const metadata: Metadata = {
-  title: 'Real Estate Innovation: How Technology is Disrupting Traditional Markets | Dias Global',
-  description: 'From proptech startups to sustainable development, discover how innovation is transforming the real estate sector and creating new investment opportunities.',
-  keywords: [
-    'real estate innovation',
-    'proptech',
-    'real estate technology',
-    'property technology',
-    'real estate disruption',
-    'sustainable development',
-    'real estate investment'
-  ],
-  openGraph: {
-    type: 'article',
-    title: 'Real Estate Innovation: How Technology is Disrupting Traditional Markets',
-    description: 'From proptech startups to sustainable development, discover how innovation is transforming the real estate sector and creating new investment opportunities.',
-    images: ['/logo.png'],
-    publishedTime: '2024-08-31T00:00:00+00:00',
-    modifiedTime: '2024-08-31T00:00:00+00:00',
-    authors: ['Dias Global Limited'],
-    section: 'Real Estate',
-    tags: ['Real Estate', 'Proptech', 'Innovation'],
-  },
-}
+const post = getPost('real-estate-innovation-disruption')!
+
+export const metadata: Metadata = articleMetadata(post)
 
 export default function RealEstateInnovationDisruptionPage() {
   const breadcrumbItems = [
@@ -39,6 +21,7 @@ export default function RealEstateInnovationDisruptionPage() {
 
   return (
     <>
+      <BlogPostingSchema post={post} />
       <Header />
       <main>
         {/* Breadcrumb Navigation */}
@@ -49,13 +32,7 @@ export default function RealEstateInnovationDisruptionPage() {
           <div className="container max-w-4xl">
             {/* Article Header */}
             <header className="text-center mb-16 pb-8 border-b border-border">
-              <div className="mb-8">
-                <svg className="w-20 h-20 text-accent mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/>
-                  <path d="M19 15L19.74 17.74L22.5 18.5L19.74 19.26L19 22L18.26 19.26L15.5 18.5L18.26 17.74L19 15Z"/>
-                  <path d="M5 15L5.74 17.74L8.5 18.5L5.74 19.26L5 22L4.26 19.26L1.5 18.5L4.26 17.74L5 15Z"/>
-                </svg>
-              </div>
+              <BlogArticleHeroImage post={post} />
               <div className="flex justify-center gap-8 mb-6 text-sm text-text-muted">
                 <span>August 31, 2025</span>
                 <span>7 min read</span>

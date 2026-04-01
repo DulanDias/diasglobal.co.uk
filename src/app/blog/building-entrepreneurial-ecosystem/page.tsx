@@ -4,31 +4,13 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import ContactSection from '@/components/sections/contact'
 import Breadcrumb from '@/components/breadcrumb'
+import { getPost, articleMetadata } from '@/lib/blog-posts'
+import { BlogPostingSchema } from '@/components/seo/schema-markup'
+import BlogArticleHeroImage from '@/components/blog/article-hero-image'
 
-export const metadata: Metadata = {
-  title: 'Building Entrepreneurial Ecosystems: The Foundation of Innovation | Dias Global',
-  description: 'Discover how Dias Global is creating and nurturing entrepreneurial ecosystems through strategic investments, mentorship programs, and collaborative partnerships.',
-  keywords: [
-    'entrepreneurial ecosystem',
-    'startup ecosystem',
-    'innovation',
-    'entrepreneurship',
-    'venture capital',
-    'startup support',
-    'business development'
-  ],
-  openGraph: {
-    type: 'article',
-    title: 'Building Entrepreneurial Ecosystems: The Foundation of Innovation',
-    description: 'Discover how Dias Global is creating and nurturing entrepreneurial ecosystems through strategic investments, mentorship programs, and collaborative partnerships.',
-    images: ['/logo.png'],
-    publishedTime: '2024-08-31T00:00:00+00:00',
-    modifiedTime: '2024-08-31T00:00:00+00:00',
-    authors: ['Dias Global Limited'],
-    section: 'Entrepreneurship',
-    tags: ['Entrepreneurship', 'Ecosystem', 'Innovation'],
-  },
-}
+const post = getPost('building-entrepreneurial-ecosystem')!
+
+export const metadata: Metadata = articleMetadata(post)
 
 export default function BuildingEntrepreneurialEcosystemPage() {
   const breadcrumbItems = [
@@ -39,6 +21,7 @@ export default function BuildingEntrepreneurialEcosystemPage() {
 
   return (
     <>
+      <BlogPostingSchema post={post} />
       <Header />
       <main>
         {/* Breadcrumb Navigation */}
@@ -49,17 +32,7 @@ export default function BuildingEntrepreneurialEcosystemPage() {
           <div className="container max-w-4xl">
             {/* Article Header */}
             <header className="text-center mb-16 pb-8 border-b border-border">
-              <div className="mb-8">
-                <svg className="w-20 h-20 text-accent mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="3"/>
-                  <circle cx="6" cy="6" r="2"/>
-                  <circle cx="18" cy="6" r="2"/>
-                  <circle cx="6" cy="18" r="2"/>
-                  <circle cx="18" cy="18" r="2"/>
-                  <path d="M8 8L16 16" strokeWidth="2"/>
-                  <path d="M16 8L8 16" strokeWidth="2"/>
-                </svg>
-              </div>
+              <BlogArticleHeroImage post={post} />
               <div className="flex justify-center gap-8 mb-6 text-sm text-text-muted">
                 <span>August 31, 2025</span>
                 <span>6 min read</span>

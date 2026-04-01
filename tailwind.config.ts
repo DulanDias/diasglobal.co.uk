@@ -15,7 +15,6 @@ const config: Config = {
         'accent-dark': 'var(--color-accent-dark)',
         text: 'var(--color-text)',
         'text-muted': 'var(--color-text-muted)',
-        'text-dark': 'var(--color-text-dark)',
         bg: 'var(--color-bg)',
         'bg-light': 'var(--color-bg-light)',
         card: 'var(--color-bg-card)',
@@ -25,38 +24,42 @@ const config: Config = {
         'navbar-mobile': 'var(--color-bg-light)',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-jetbrains-mono)', 'monospace'],
+        sans: ['var(--font-sora)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'ui-monospace', 'monospace'],
       },
       spacing: {
-        'xs': '0.5rem',
-        'sm': '1rem',
-        'md': '1.5rem',
-        'lg': '2rem',
-        'xl': '3rem',
+        xs: '0.5rem',
+        sm: '1rem',
+        md: '1.5rem',
+        lg: '2rem',
+        xl: '3rem',
         '2xl': '4rem',
         '3xl': '6rem',
         '4xl': '8rem',
       },
       borderRadius: {
-        'sm': '0.5rem',
-        'md': '1rem',
-        'lg': '1.5rem',
-        'xl': '2rem',
+        sm: '0.5rem',
+        md: '0.75rem',
+        lg: '1rem',
+        xl: '1.25rem',
       },
       boxShadow: {
-        'sm': '0 2px 8px rgba(0, 0, 0, 0.1)',
-        'md': '0 8px 32px rgba(0, 0, 0, 0.2)',
-        'lg': '0 16px 64px rgba(0, 0, 0, 0.3)',
-        'glow': '0 0 32px rgba(239, 74, 58, 0.3)',
+        xs: '0 1px 2px rgba(12, 18, 34, 0.04)',
+        sm: '0 2px 8px rgba(12, 18, 34, 0.06)',
+        md: '0 8px 24px rgba(12, 18, 34, 0.08)',
+        lg: '0 16px 48px rgba(12, 18, 34, 0.1)',
+        glow: '0 8px 32px rgba(224, 61, 47, 0.2)',
       },
       transitionDuration: {
-        'fast': '0.2s',
-        'normal': '0.3s',
-        'slow': '0.5s',
+        fast: '0.2s',
+        normal: '0.3s',
+        slow: '0.5s',
       },
       maxWidth: {
-        'container': '1200px',
+        container: '1160px',
+      },
+      padding: {
+        container: '1.25rem',
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.8s ease forwards',
@@ -65,8 +68,8 @@ const config: Config = {
         'slide-in-right': 'slideInRight 0.8s ease forwards',
         'scale-in': 'scaleIn 0.8s ease forwards',
         'scroll-bounce': 'scrollBounce 2s ease-in-out infinite',
-        'pulse': 'pulse 2s ease-in-out infinite',
-        'loading': 'loading 2s ease-in-out infinite',
+        pulse: 'pulse 2s ease-in-out infinite',
+        loading: 'loading 2s ease-in-out infinite',
       },
       keyframes: {
         fadeInUp: {
@@ -128,7 +131,6 @@ const config: Config = {
     },
   },
   plugins: [],
-  darkMode: 'class',
 }
 
 export default config

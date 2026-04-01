@@ -4,10 +4,12 @@ import Footer from '@/components/footer'
 import ToolsListing from '@/components/tools/tools-listing'
 import { ToolsPageSchema } from '@/components/seo/schema-markup'
 import Breadcrumb from '@/components/breadcrumb'
+import { defaultOgTwitter, standardRobots } from '@/lib/seo-metadata'
 
 export const metadata: Metadata = {
   title: 'Free Financial Tools & Calculators 2024 | UK & Sri Lanka | Salary, Tax & Property Calculators',
-  description: 'Free financial tools and calculators for UK and Sri Lanka. Calculate take-home pay, rent vs mortgage, PAYE tax, and more with our comprehensive financial calculators. Make informed financial decisions.',
+  description:
+    'Free financial tools and calculators for UK and Sri Lanka. Calculate take-home pay, rent vs mortgage, PAYE tax, and more with our comprehensive financial calculators. Make informed financial decisions.',
   keywords: [
     'UK salary calculator',
     'take home pay calculator',
@@ -33,35 +35,17 @@ export const metadata: Metadata = {
     'UK tax brackets calculator',
     'Sri Lanka tax brackets',
     'free online calculators',
-    'financial decision tools'
+    'financial decision tools',
   ],
-  openGraph: {
-    title: 'Free Financial Tools & Calculators 2024 | UK & Sri Lanka',
-    description: 'Free financial tools and calculators for UK and Sri Lanka. Calculate take-home pay, rent vs mortgage, PAYE tax, and more with our comprehensive calculators.',
-    images: ['/logo.png'],
-    type: 'website',
-    locale: 'en_GB',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Free Financial Tools & Calculators 2024 | UK & Sri Lanka',
-    description: 'Free financial tools and calculators for UK and Sri Lanka. Make informed financial decisions.',
-    images: ['/logo.png'],
-  },
+  ...defaultOgTwitter(
+    '/tools',
+    'Free Financial Tools & Calculators 2024 | UK & Sri Lanka',
+    'Free financial tools and calculators for UK and Sri Lanka. Calculate take-home pay, rent vs mortgage, PAYE tax, and more with our comprehensive calculators.'
+  ),
   alternates: {
     canonical: '/tools',
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  robots: standardRobots,
 }
 
 const tools = [

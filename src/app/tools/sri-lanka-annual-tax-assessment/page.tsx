@@ -4,10 +4,12 @@ import Footer from '@/components/footer'
 import SriLankaAnnualTaxAssessment from '@/components/tools/sri-lanka-annual-tax-assessment'
 import { CalculatorSchema } from '@/components/seo/schema-markup'
 import Breadcrumb from '@/components/breadcrumb'
+import { defaultOgTwitter, standardRobots } from '@/lib/seo-metadata'
 
 export const metadata: Metadata = {
   title: 'Sri Lanka Annual Personal Tax Assessment Calculator 2025 | Free Tax Calculator | Multiple Income Sources',
-  description: 'Free Sri Lanka annual personal tax assessment calculator 2025. Calculate your total tax liability with multiple income sources, taxes already deducted, WHT on interest, and determine additional tax to pay. Comprehensive tax assessment tool.',
+  description:
+    'Free Sri Lanka annual personal tax assessment calculator 2025. Calculate your total tax liability with multiple income sources, taxes already deducted, WHT on interest, and determine additional tax to pay. Comprehensive tax assessment tool.',
   keywords: [
     'Sri Lanka annual tax assessment',
     'Sri Lanka personal tax calculator',
@@ -28,35 +30,18 @@ export const metadata: Metadata = {
     'annual tax assessment calculator',
     'Sri Lanka tax compliance calculator',
     'personal income tax Sri Lanka',
-    'Sri Lanka tax year assessment'
+    'Sri Lanka tax year assessment',
   ],
-  openGraph: {
-    title: 'Sri Lanka Annual Personal Tax Assessment Calculator 2025',
-    description: 'Calculate your total tax liability with multiple income sources, taxes already deducted, WHT on interest, and determine additional tax to pay in Sri Lanka.',
-    images: ['/logo.png'],
-    type: 'website',
-    locale: 'en_LK',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Sri Lanka Annual Personal Tax Assessment Calculator 2025',
-    description: 'Calculate your total tax liability with multiple income sources and determine additional tax to pay in Sri Lanka.',
-    images: ['/logo.png'],
-  },
+  ...defaultOgTwitter(
+    '/tools/sri-lanka-annual-tax-assessment',
+    'Sri Lanka Annual Personal Tax Assessment Calculator 2025',
+    'Calculate your total tax liability with multiple income sources, taxes already deducted, WHT on interest, and determine additional tax to pay in Sri Lanka.',
+    'en_LK'
+  ),
   alternates: {
     canonical: '/tools/sri-lanka-annual-tax-assessment',
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  robots: standardRobots,
 }
 
 export default function SriLankaAnnualTaxAssessmentPage() {

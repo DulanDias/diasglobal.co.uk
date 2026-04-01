@@ -3,23 +3,31 @@ import Link from 'next/link'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Breadcrumb from '@/components/breadcrumb'
+import { defaultOgTwitter, standardRobots } from '@/lib/seo-metadata'
 
 export const metadata: Metadata = {
-  title: 'Terms of Use | Dias Global Limited | Website Terms and Conditions',
-  description: 'Terms of Use for Dias Global Limited website. Read our terms and conditions for using our website and services.',
+  title: {
+    absolute: 'Terms of Use | Dias Global Limited | Website Terms and Conditions',
+  },
+  description:
+    'Terms of Use for Dias Global Limited website. Read our terms and conditions for using our website and services.',
   keywords: [
     'terms of use',
     'terms and conditions',
     'website terms',
     'Dias Global terms',
     'legal terms',
-    'user agreement'
+    'user agreement',
   ],
-  openGraph: {
-    title: 'Terms of Use | Dias Global Limited',
-    description: 'Terms of Use for Dias Global Limited website. Read our terms and conditions for using our website and services.',
-    images: ['/logo.png'],
+  ...defaultOgTwitter(
+    '/terms-of-use',
+    'Terms of Use | Dias Global Limited',
+    'Terms of Use for Dias Global Limited website. Read our terms and conditions for using our website and services.'
+  ),
+  alternates: {
+    canonical: '/terms-of-use',
   },
+  robots: standardRobots,
 }
 
 export default function TermsOfUsePage() {

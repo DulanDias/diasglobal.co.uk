@@ -1,4 +1,7 @@
 import Script from 'next/script'
+import type { BlogPost } from '@/lib/blog-posts'
+import { OG_IMAGE_SIZE } from '@/lib/blog-posts'
+import { SITE_URL } from '@/lib/site'
 
 interface CalculatorSchemaProps {
   name: string
@@ -115,6 +118,119 @@ export function ToolSchema({ name, description, url, country, category, features
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(schema)
+      }}
+    />
+  )
+}
+
+interface BlogCollectionSchemaProps {
+  posts: BlogPost[]
+}
+
+export function BlogCollectionSchema({ posts }: BlogCollectionSchemaProps) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Dias Global Blog — Investment & Innovation Insights',
+    description:
+      'Expert insights on investment strategies, technology trends, and entrepreneurial ventures from Dias Global Limited.',
+    url: `${SITE_URL}/blog`,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'Dias Global Limited',
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Dias Global Limited',
+      url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/logo.png`,
+      },
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: posts.map((post, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${SITE_URL}${post.href}`,
+        name: post.title,
+      })),
+    },
+  }
+
+  return (
+    <Script
+      id="blog-collection-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(schema),
+      }}
+    />
+  )
+}
+
+interface BlogPostingSchemaProps {
+  post: BlogPost
+}
+
+export function BlogPostingSchema({ post }: BlogPostingSchemaProps) {
+  const url = `${SITE_URL}${post.href}`
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    image: [
+      {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}${post.ogImageJpg}`,
+        width: OG_IMAGE_SIZE.width,
+        height: OG_IMAGE_SIZE.height,
+        caption: post.imageAlt,
+      },
+      {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}${post.ogImageWebp}`,
+        width: OG_IMAGE_SIZE.width,
+        height: OG_IMAGE_SIZE.height,
+        caption: post.imageAlt,
+      },
+    ],
+    datePublished: post.publishedTime,
+    dateModified: post.modifiedTime,
+    author: {
+      '@type': 'Organization',
+      name: 'Dias Global Limited',
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Dias Global Limited',
+      url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    url,
+    articleSection: post.openGraphSection,
+    keywords: post.keywords.join(', '),
+    inLanguage: 'en-GB',
+    isAccessibleForFree: true,
+  }
+
+  return (
+    <Script
+      id={`blog-post-schema-${post.slug}`}
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(schema),
       }}
     />
   )

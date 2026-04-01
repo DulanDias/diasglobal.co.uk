@@ -4,10 +4,12 @@ import Footer from '@/components/footer'
 import UKRentMortgageCalculator from '@/components/tools/uk-rent-mortgage-calculator'
 import { CalculatorSchema } from '@/components/seo/schema-markup'
 import Breadcrumb from '@/components/breadcrumb'
+import { defaultOgTwitter, standardRobots } from '@/lib/seo-metadata'
 
 export const metadata: Metadata = {
   title: 'UK Rent vs Mortgage Calculator 2024 | Free Property Investment Calculator | Compare Renting vs Buying',
-  description: 'Free UK rent vs mortgage calculator 2024. Compare renting vs buying property with comprehensive analysis of upfront costs, monthly payments, equity building, and long-term financial benefits. Make informed property decisions.',
+  description:
+    'Free UK rent vs mortgage calculator 2024. Compare renting vs buying property with comprehensive analysis of upfront costs, monthly payments, equity building, and long-term financial benefits. Make informed property decisions.',
   keywords: [
     'UK rent vs mortgage calculator',
     'rent vs buy calculator',
@@ -28,35 +30,17 @@ export const metadata: Metadata = {
     'property cost calculator',
     'UK real estate calculator',
     'rent vs buy analysis UK',
-    'property decision calculator'
+    'property decision calculator',
   ],
-  openGraph: {
-    title: 'UK Rent vs Mortgage Calculator 2024 | Free Property Investment Calculator',
-    description: 'Compare renting vs buying property in the UK. Calculate upfront costs, monthly payments, and long-term equity building with our comprehensive calculator.',
-    images: ['/logo.png'],
-    type: 'website',
-    locale: 'en_GB',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'UK Rent vs Mortgage Calculator 2024 | Free Property Investment Calculator',
-    description: 'Compare renting vs buying property in the UK. Make informed property investment decisions.',
-    images: ['/logo.png'],
-  },
+  ...defaultOgTwitter(
+    '/tools/uk-rent-mortgage-calculator',
+    'UK Rent vs Mortgage Calculator 2024 | Free Property Investment Calculator',
+    'Compare renting vs buying property in the UK. Calculate upfront costs, monthly payments, and long-term equity building with our comprehensive calculator.'
+  ),
   alternates: {
     canonical: '/tools/uk-rent-mortgage-calculator',
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  robots: standardRobots,
 }
 
 export default function UKRentMortgageCalculatorPage() {

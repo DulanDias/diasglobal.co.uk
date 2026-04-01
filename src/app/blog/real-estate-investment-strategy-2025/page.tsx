@@ -4,31 +4,13 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import ContactSection from '@/components/sections/contact'
 import Breadcrumb from '@/components/breadcrumb'
+import { getPost, articleMetadata } from '@/lib/blog-posts'
+import { BlogPostingSchema } from '@/components/seo/schema-markup'
+import BlogArticleHeroImage from '@/components/blog/article-hero-image'
 
-export const metadata: Metadata = {
-  title: 'Strategic Real Estate Investment: The Renovation-to-Rental Model | Dias Global',
-  description: 'Discover Dias Global\'s innovative approach to real estate investment: purchasing undervalued properties, executing strategic renovations, and creating sustainable rental income streams.',
-  keywords: [
-    'real estate investment',
-    'renovation to rental',
-    'property investment strategy',
-    'UK real estate',
-    'investment opportunities',
-    'property development',
-    'rental income'
-  ],
-  openGraph: {
-    type: 'article',
-    title: 'Strategic Real Estate Investment: The Renovation-to-Rental Model',
-    description: 'Discover Dias Global\'s innovative approach to real estate investment: purchasing undervalued properties, executing strategic renovations, and creating sustainable rental income streams.',
-    images: ['/logo.png'],
-    publishedTime: '2024-08-31T00:00:00+00:00',
-    modifiedTime: '2024-08-31T00:00:00+00:00',
-    authors: ['Dias Global Limited'],
-    section: 'Real Estate Investment',
-    tags: ['Real Estate', 'Investment Strategy', 'Property Development'],
-  },
-}
+const post = getPost('real-estate-investment-strategy-2025')!
+
+export const metadata: Metadata = articleMetadata(post)
 
 export default function RealEstateInvestmentStrategyPage() {
   const breadcrumbItems = [
@@ -39,6 +21,7 @@ export default function RealEstateInvestmentStrategyPage() {
 
   return (
     <>
+      <BlogPostingSchema post={post} />
       <Header />
       <main>
         {/* Breadcrumb Navigation */}
@@ -49,12 +32,7 @@ export default function RealEstateInvestmentStrategyPage() {
           <div className="container max-w-4xl">
             {/* Article Header */}
             <header className="text-center mb-16 pb-8 border-b border-border">
-              <div className="mb-8">
-                <svg className="w-20 h-20 text-accent mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                  <polyline points="9,22 9,12 15,12 15,22"/>
-                </svg>
-              </div>
+              <BlogArticleHeroImage post={post} />
               <div className="flex justify-center gap-8 mb-6 text-sm text-text-muted">
                 <span>August 31, 2025</span>
                 <span>8 min read</span>

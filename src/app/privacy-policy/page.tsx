@@ -3,10 +3,14 @@ import Link from 'next/link'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Breadcrumb from '@/components/breadcrumb'
+import { defaultOgTwitter, standardRobots } from '@/lib/seo-metadata'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Dias Global Limited | Data Protection & Privacy Information',
-  description: 'Privacy Policy for Dias Global Limited. Learn how we collect, use, and protect your personal information in compliance with UK data protection laws and GDPR regulations.',
+  title: {
+    absolute: 'Privacy Policy | Dias Global Limited | Data Protection & Privacy Information',
+  },
+  description:
+    'Privacy Policy for Dias Global Limited. Learn how we collect, use, and protect your personal information in compliance with UK data protection laws and GDPR regulations.',
   keywords: [
     'privacy policy',
     'data protection',
@@ -14,13 +18,17 @@ export const metadata: Metadata = {
     'personal data',
     'Dias Global privacy',
     'UK data protection',
-    'privacy rights'
+    'privacy rights',
   ],
-  openGraph: {
-    title: 'Privacy Policy | Dias Global Limited',
-    description: 'Privacy Policy for Dias Global Limited. Learn how we collect, use, and protect your personal information.',
-    images: ['/logo.png'],
+  ...defaultOgTwitter(
+    '/privacy-policy',
+    'Privacy Policy | Dias Global Limited',
+    'Privacy Policy for Dias Global Limited. Learn how we collect, use, and protect your personal information.'
+  ),
+  alternates: {
+    canonical: '/privacy-policy',
   },
+  robots: standardRobots,
 }
 
 export default function PrivacyPolicyPage() {

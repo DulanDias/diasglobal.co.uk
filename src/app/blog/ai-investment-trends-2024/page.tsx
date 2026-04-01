@@ -4,38 +4,13 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import ContactSection from '@/components/sections/contact'
 import Breadcrumb from '@/components/breadcrumb'
+import { getPost, articleMetadata } from '@/lib/blog-posts'
+import { BlogPostingSchema } from '@/components/seo/schema-markup'
+import BlogArticleHeroImage from '@/components/blog/article-hero-image'
 
-export const metadata: Metadata = {
-  title: 'AI Investment Trends 2025: The Future of Artificial Intelligence Investment | Dias Global',
-  description: 'Discover the key AI investment opportunities and emerging trends that will define the artificial intelligence landscape in 2025. Expert analysis on AI investment strategies, market dynamics, and risk considerations.',
-  keywords: [
-    'AI investment',
-    'artificial intelligence investment',
-    'AI trends 2025',
-    'technology investment',
-    'AI market analysis',
-    'investment opportunities',
-    'AI startups',
-    'machine learning investment'
-  ],
-  openGraph: {
-    type: 'article',
-    title: 'AI Investment Trends 2025: The Future of Artificial Intelligence Investment',
-    description: 'Discover the key AI investment opportunities and emerging trends that will define the artificial intelligence landscape in 2025.',
-    images: ['/logo.png'],
-    publishedTime: '2024-08-31T00:00:00+00:00',
-    modifiedTime: '2024-08-31T00:00:00+00:00',
-    authors: ['Dias Global Limited'],
-    section: 'Technology Investment',
-    tags: ['AI Investment', 'Artificial Intelligence', 'Technology Trends'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'AI Investment Trends 2025: The Future of Artificial Intelligence Investment',
-    description: 'Discover the key AI investment opportunities and emerging trends that will define the artificial intelligence landscape in 2025.',
-    images: ['/logo.png'],
-  },
-}
+const post = getPost('ai-investment-trends-2024')!
+
+export const metadata: Metadata = articleMetadata(post)
 
 export default function AIInvestmentTrendsPage() {
   const breadcrumbItems = [
@@ -46,6 +21,7 @@ export default function AIInvestmentTrendsPage() {
 
   return (
     <>
+      <BlogPostingSchema post={post} />
       <Header />
       <main>
         {/* Breadcrumb Navigation */}
@@ -56,14 +32,7 @@ export default function AIInvestmentTrendsPage() {
           <div className="container max-w-4xl">
             {/* Article Header */}
             <header className="text-center mb-16 pb-8 border-b border-border">
-              <div className="mb-8">
-                <svg className="w-20 h-20 text-accent mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2Z"/>
-                  <path d="M21 9V7C21 5.9 20.1 5 19 5H17.8C17.4 3.8 16.3 3 15 3H13C11.7 3 10.6 3.8 10.2 5H9C7.9 5 7 5.9 7 7V9C5.9 9 5 9.9 5 11V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V11C19 9.9 18.1 9 17 9H21Z"/>
-                  <path d="M12 12C13.1 12 14 12.9 14 14C14 15.1 13.1 16 12 16C10.9 16 10 15.1 10 14C10 12.9 10.9 12 12 12Z"/>
-                  <path d="M8 14C8 13.4 8.4 13 9 13H15C15.6 13 16 13.4 16 14V17C16 17.6 15.6 18 15 18H9C8.4 18 8 17.6 8 17V14Z"/>
-                </svg>
-              </div>
+              <BlogArticleHeroImage post={post} />
               <div className="flex justify-center gap-8 mb-6 text-sm text-text-muted">
                 <span>August 31, 2025</span>
                 <span>5 min read</span>

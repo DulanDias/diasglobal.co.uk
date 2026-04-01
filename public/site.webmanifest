@@ -4,8 +4,8 @@
     "description": "Next-Generation Investment & Innovation - UK Family Global Holding Company",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#0f0f23",
-    "theme_color": "#0f0f23",
+    "background_color": "#fafaf9",
+    "theme_color": "#e03d2f",
     "orientation": "portrait-primary",
     "icons": [
         {

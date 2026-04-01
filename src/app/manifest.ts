@@ -9,8 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Next-generation family global holding company investing in real assets, technology, and entrepreneurial ventures.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#0a0a1a',
-    theme_color: '#0f0f23',
+    background_color: '#fafaf9',
+    theme_color: '#e03d2f',
     icons: [
       {
         src: '/favicon.png',
