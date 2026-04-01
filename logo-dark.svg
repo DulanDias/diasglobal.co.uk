@@ -1,0 +1,23 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#00d4ff" opacity="0.1"/>
+  
+  <!-- Main logo elements -->
+  <path d="M60 80 L100 40 L140 80 L140 120 L100 160 L60 120 Z" stroke="#00d4ff" stroke-width="3" fill="none"/>
+  
+  <!-- Inner elements -->
+  <circle cx="100" cy="100" r="15" fill="#00d4ff"/>
+  <path d="M85 100 L115 100 M100 85 L100 115" stroke="#0a0a1a" stroke-width="2"/>
+  
+  <!-- Connecting lines -->
+  <path d="M60 80 L140 80" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+  <path d="M60 120 L140 120" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+  <path d="M80 60 L80 140" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+  <path d="M120 60 L120 140" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Corner accents -->
+  <circle cx="60" cy="60" r="3" fill="#00d4ff"/>
+  <circle cx="140" cy="60" r="3" fill="#00d4ff"/>
+  <circle cx="60" cy="140" r="3" fill="#00d4ff"/>
+  <circle cx="140" cy="140" r="3" fill="#00d4ff"/>
+</svg>
