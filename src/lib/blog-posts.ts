@@ -30,6 +30,41 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'uk-isa-guide-2026',
+    title: 'UK ISAs in Plain English: Cash, Stocks, Lifetime, and What "Flexible" Really Means',
+    metaTitle:
+      'UK ISAs Explained: Cash ISA, Stocks & Shares ISA, Lifetime ISA, Allowances & Tax | Dias Global',
+    description:
+      'How UK ISAs work: £20,000 allowance and tax years, Cash vs Stocks & Shares vs Lifetime ISA, flexible ISAs, indicative 2026 rates, PSA and tax brackets, and an interactive calculator. Information only, not advice.',
+    excerpt:
+      'Allowances, LISA rules, flexible withdrawals, indicative bank rates, and how tax brackets change what you keep outside an ISA. Includes a calculator to test your own figures.',
+    category: 'Personal Finance',
+    date: 'April 8, 2026',
+    readTime: '15 min read',
+    href: '/blog/uk-isa-guide-2026',
+    tags: ['ISA', 'UK', 'Savings'],
+    keywords: [
+      'UK ISA',
+      'Cash ISA',
+      'Stocks and Shares ISA',
+      'Lifetime ISA',
+      'flexible ISA',
+      'ISA allowance',
+      'Personal Savings Allowance',
+      'tax year ISA',
+      'LISA bonus',
+    ],
+    cardImage: '/blog/uk-isa-guide-2026-card.webp',
+    ogImageJpg: '/blog/uk-isa-guide-2026-og.jpg',
+    ogImageWebp: '/blog/uk-isa-guide-2026-og.webp',
+    imageAlt:
+      'Desk scene with a piggy bank, pound coins, and a notebook suggesting careful planning for UK ISA savings.',
+    openGraphSection: 'Personal Finance',
+    openGraphTags: ['ISA', 'UK Savings', 'Tax-Free Saving'],
+    publishedTime: '2026-04-08T00:00:00+00:00',
+    modifiedTime: '2026-04-08T00:00:00+00:00',
+  },
+  {
     slug: 'uk-remortgage-guide-2026',
     title: 'Remortgaging in the UK: Fees, Fixes, and When Equity Opens Up',
     metaTitle:
