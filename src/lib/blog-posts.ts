@@ -30,6 +30,40 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'uk-remortgage-guide-2026',
+    title: 'Remortgaging in the UK: Fees, Fixes, and When Equity Opens Up',
+    metaTitle:
+      'Remortgaging in the UK: Fees, Fixed Rates, Further Advances & What to Check | Dias Global',
+    description:
+      'A practical UK-focused look at remortgages: product fees, fixed vs variable terms, two- versus five-year fixes, further advances, and what to verify before using equity for other investments. General information only, not personal advice.',
+    excerpt:
+      'Fees, fixes, term length, and further advances. What UK homeowners often overlook before they remortgage, and why the small print matters more than the headline rate.',
+    category: 'Property Finance',
+    date: 'April 1, 2026',
+    readTime: '11 min read',
+    href: '/blog/uk-remortgage-guide-2026',
+    tags: ['Remortgage', 'UK Property', 'Mortgage'],
+    keywords: [
+      'remortgage UK',
+      'UK mortgage fees',
+      'fixed rate mortgage',
+      'further advance',
+      'product fee mortgage',
+      'remortgage equity',
+      'two year vs five year fix',
+      'loan to value',
+    ],
+    cardImage: '/blog/uk-remortgage-guide-2026-card.webp',
+    ogImageJpg: '/blog/uk-remortgage-guide-2026-og.jpg',
+    ogImageWebp: '/blog/uk-remortgage-guide-2026-og.webp',
+    imageAlt:
+      'Warm daylight on a kitchen table with house keys, papers, and tea, suggesting a calm moment to review remortgage options at home.',
+    openGraphSection: 'Property Finance',
+    openGraphTags: ['Remortgage', 'UK Mortgages', 'Property Finance'],
+    publishedTime: '2026-04-01T00:00:00+00:00',
+    modifiedTime: '2026-04-01T00:00:00+00:00',
+  },
+  {
     slug: 'ai-investment-trends-2024',
     title: 'The Future of AI Investment: Trends to Watch in 2025',
     metaTitle: 'AI Investment Trends 2025: The Future of Artificial Intelligence Investment | Dias Global',
