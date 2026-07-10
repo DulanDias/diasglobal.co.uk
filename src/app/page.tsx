@@ -7,6 +7,7 @@ import AboutSection from '@/components/sections/about'
 import SectorsSection from '@/components/sections/sectors'
 import ApproachSection from '@/components/sections/approach'
 import InsightsSection from '@/components/sections/insights'
+import FoundationSection from '@/components/sections/foundation'
 import ContactSection from '@/components/sections/contact'
 import ScrollToTop from '@/components/scroll-to-top'
 
@@ -47,6 +48,7 @@ export default function HomePage() {
         <SectorsSection />
         <ApproachSection />
         <InsightsSection />
+        <FoundationSection />
         <ContactSection />
       </main>
       <Footer />

@@ -37,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/foundation`,
+      lastModified: new Date('2026-07-10T00:00:00.000Z'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${SITE_URL}/tools/uk-salary-calculator`,
       lastModified: toolsLastMod,
       changeFrequency: 'monthly',

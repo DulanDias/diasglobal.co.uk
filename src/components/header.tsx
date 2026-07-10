@@ -48,6 +48,9 @@ export default function Header() {
             <Link href="/#insights" className="nav-link">
               Insights
             </Link>
+            <Link href="/foundation" className="nav-link">
+              Foundation
+            </Link>
             <Link href="/#contact" className="nav-link">
               Contact
             </Link>
@@ -88,6 +91,9 @@ export default function Header() {
           </Link>
           <Link href="/#insights" className="nav-link-mobile" onClick={closeMenu}>
             Insights
+          </Link>
+          <Link href="/foundation" className="nav-link-mobile" onClick={closeMenu}>
+            Foundation
           </Link>
           <Link href="/#contact" className="nav-link-mobile" onClick={closeMenu}>
             Contact

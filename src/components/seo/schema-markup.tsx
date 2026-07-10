@@ -291,3 +291,49 @@ export function ToolsPageSchema({ tools }: ToolsPageSchemaProps) {
     />
   )
 }
+
+export function FoundationSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Dias Global Foundation",
+    "alternateName": "The Dias Global Foundation",
+    "url": `${SITE_URL}/foundation`,
+    "logo": `${SITE_URL}/logo.png`,
+    "description":
+      "The charitable arm of Dias Global Limited. The Dias Global Foundation identifies and helps people in genuine need, providing vetted one-off and recurring support until a defined milestone is reached.",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Dias Global Limited",
+      "url": SITE_URL
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Global"
+    },
+    "knowsAbout": [
+      "Charitable giving",
+      "Education sponsorship",
+      "Family welfare support",
+      "Humanitarian assistance"
+    ],
+    "potentialAction": {
+      "@type": "DonateAction",
+      "name": "Contribute to the Foundation Fund",
+      "recipient": {
+        "@type": "NGO",
+        "name": "Dias Global Foundation"
+      }
+    }
+  }
+
+  return (
+    <Script
+      id="foundation-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(schema)
+      }}
+    />
+  )
+}
