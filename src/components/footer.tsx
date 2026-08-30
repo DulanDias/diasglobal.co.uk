@@ -2,14 +2,17 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import { FOOTER_NAV, isCurrentPath } from '@/lib/navigation'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const pathname = usePathname()
 
   return (
     <footer className="bg-bg-light border-t border-border py-12">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10 pb-10 border-b border-border">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-10 mb-10 pb-10 border-b border-border">
           <div className="flex flex-col gap-4">
             <Link href="/" className="block transition-transform duration-200 hover:scale-[1.02] w-fit">
               <Image
@@ -26,39 +29,32 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-sm font-semibold mb-4 text-text uppercase tracking-wider">Company</h4>
-              <div className="flex flex-col gap-3">
-                <Link href="/#about" className="footer-link">
-                  About Us
-                </Link>
-                <Link href="/#sectors" className="footer-link">
-                  Investment Sectors
-                </Link>
-                <Link href="/#approach" className="footer-link">
-                  Our Approach
-                </Link>
+          {/* Mirrors the header IA: both are rendered from '@/lib/navigation', so they cannot drift. */}
+          <nav aria-label="Footer" className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+            {FOOTER_NAV.map((column) => (
+              <div key={column.heading}>
+                <h2 className="text-sm font-semibold mb-4 text-text uppercase tracking-wider">
+                  {column.heading}
+                </h2>
+                <ul className="flex flex-col gap-3 list-none m-0 p-0">
+                  {column.links.map((link) => {
+                    const isActive = isCurrentPath(pathname, link.href)
+                    return (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          className={`footer-link${isActive ? ' active' : ''}`}
+                          aria-current={isActive ? 'page' : undefined}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
               </div>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold mb-4 text-text uppercase tracking-wider">Resources</h4>
-              <div className="flex flex-col gap-3">
-                <Link href="/#insights" className="footer-link">
-                  Insights
-                </Link>
-                <Link href="/foundation" className="footer-link">
-                  Foundation
-                </Link>
-                <Link href="/privacy-policy" className="footer-link">
-                  Privacy Policy
-                </Link>
-                <Link href="/terms-of-use" className="footer-link">
-                  Terms of Use
-                </Link>
-              </div>
-            </div>
-          </div>
+            ))}
+          </nav>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 flex-wrap">
@@ -75,16 +71,16 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border/80">
+        <div className="mt-8 pt-8 border-t border-border">
           <p className="text-text-muted text-xs leading-relaxed text-center max-w-4xl mx-auto">
-            <strong className="font-medium text-text-muted">Disclaimer:</strong> Financial tools and calculators provided on this website are for informational purposes only and should not be considered as financial, tax, investment, or legal advice. 
-            Please consult with qualified professionals before making financial decisions. 
+            <strong className="font-medium text-text-muted">Disclaimer:</strong> Financial tools and calculators provided on this website are for informational purposes only and should not be considered as financial, tax, investment, or legal advice.
+            Please consult with qualified professionals before making financial decisions.
             <Link href="/tools" className="text-accent hover:underline ml-1">View full disclaimer</Link>.
           </p>
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         .footer-link {
           display: block;
           color: var(--color-text-muted);
@@ -93,7 +89,8 @@ export default function Footer() {
           transition: color 0.2s ease;
         }
 
-        .footer-link:hover {
+        .footer-link:hover,
+        .footer-link.active {
           color: var(--color-accent);
         }
 

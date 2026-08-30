@@ -25,3 +25,7 @@ export const ORGANIZATION = {
     addressCountry: 'GB',
   },
 } as const
+
+/** The single Formspree endpoint every form on the site posts to.
+ *  Submissions are distinguished by their hidden `_subject` field, not by URL. */
+export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzzvkqpa' as const

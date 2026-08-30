@@ -247,3 +247,110 @@
     box-shadow: var(--shadow-glow);
   }
 }
+
+/* ==========================================================================
+   THE ISLAND MERCHANT — scoped brand theme
+   --------------------------------------------------------------------------
+   Applied by putting `im-theme` on the single wrapper element that
+   contains the Island Merchant page content. Nothing else needs to opt in.
+
+   WHY THIS CANNOT LEAK INTO THE DIAS GLOBAL HEADER / FOOTER
+   ---------------------------------------------------------
+   Two independent mechanisms, either one of which is sufficient:
+
+   1. INHERITANCE (the load-bearing one). Custom properties are inherited
+      properties. A declaration written here applies to the wrapper element and
+      is then inherited *down* its subtree only. <Header> and <Footer> are
+      siblings of <main>, not descendants of the wrapper, so they are never in
+      that subtree and can never receive these values. Containment is a DOM-tree
+      fact, not a cascade fact — no ordering or specificity accident can undo it.
+
+   2. SPECIFICITY / CASCADE (belt and braces). The base tokens live on `:root`,
+      which only ever matches <html>. This block only ever matches the wrapper.
+      The two selectors match disjoint elements, so they never compete for the
+      same declaration in the first place. (Had they competed: `:root` is a
+      pseudo-class, specificity 0-1-0, identical to a single class, and this
+      block is appended later in the stylesheet, so it would win the tie anyway.)
+
+   Consequence: inside the wrapper, --color-accent means Island Merchant gold and
+   the shared component classes (.btn-primary, .section-eyebrow, .text-accent,
+   .card, …) re-skin themselves for free. Outside it, --color-accent is still
+   #e03d2f and the corporate header, footer and cookie banner keep the red accent.
+
+   ACCESSIBILITY CONTRACT (ratios computed against cream #faf7f0)
+   -------------------------------------------------------------
+     --im-ink      #3b2a14  12.85:1  body text
+     --im-muted    #6d563a   6.45:1  secondary text
+     --im-accent   #8b6b39   4.61:1  links, buttons, focus rings
+     --im-accent-dark #765b30 5.93:1 hover / active
+     --im-gold     #b08848   3.04:1  DECORATIVE ONLY — rules, borders, large
+                                     display type. NEVER body text on cream.
+                                     On --im-brown it is 4.23:1 and safe for text.
+   White on --im-accent is 4.62:1, so --color-text-on-accent stays #ffffff;
+   cream on --im-accent is only 4.32:1, so do not use cream for button labels.
+   ========================================================================== */
+@layer base {
+  .im-theme {
+    /* --- raw brand palette, sampled from the packaging artwork --- */
+    --im-cream: #faf7f0;
+    --im-kraft: #f2ebdd;
+    --im-brown: #3b2a14;
+    --im-ink: #3b2a14;
+    --im-muted: #6d563a;
+    --im-accent: #8b6b39;
+    --im-accent-dark: #765b30;
+    --im-gold: #b08848;
+    --im-gold-soft: rgba(176, 136, 72, 0.1);
+    --im-rule: rgba(176, 136, 72, 0.35);
+
+    /* --- remap of the shared Dias Global tokens, scoped to this subtree --- */
+    --color-ink: var(--im-ink);
+    --color-ink-muted: var(--im-muted);
+    --color-ink-subtle: var(--im-muted);
+
+    --color-accent: var(--im-accent);
+    --color-accent-dark: var(--im-accent-dark);
+    --color-accent-soft: var(--im-gold-soft);
+
+    --color-text: var(--im-ink);
+    --color-text-muted: var(--im-muted);
+    --color-text-on-accent: #ffffff;
+
+    --color-bg: var(--im-cream);
+    --color-bg-light: var(--im-kraft);
+    --color-bg-elevated: #ffffff;
+    --color-bg-card: #ffffff;
+
+    --color-border: rgba(59, 42, 20, 0.14);
+    --color-border-light: rgba(59, 42, 20, 0.08);
+
+    /* .btn-primary composes var(--shadow-glow); left alone it would halo red. */
+    --shadow-xs: 0 1px 2px rgba(59, 42, 20, 0.05);
+    --shadow-sm: 0 2px 8px rgba(59, 42, 20, 0.07);
+    --shadow-md: 0 8px 24px rgba(59, 42, 20, 0.1);
+    --shadow-lg: 0 16px 48px rgba(59, 42, 20, 0.12);
+    --shadow-glow: 0 8px 32px rgba(176, 136, 72, 0.22);
+
+    /* --- sticky sub-nav geometry (see scroll-margin override below) --- */
+    --im-subnav-height: 3.5rem;
+    --im-scroll-offset: calc(5rem + var(--im-subnav-height));
+
+    background: var(--im-cream);
+    color: var(--im-ink);
+  }
+
+  /* Anchor offset. The base rule is `section[id] { scroll-margin-top: 5.5rem }`,
+     which clears the site header only. The Island Merchant page stacks a sticky
+     in-page sub-nav underneath that header, so every jump target needs the extra
+     --im-subnav-height or the heading lands behind the sub-nav.
+
+     `.im-theme section[id]` is 0-2-1 against the base rule's 0-1-1,
+     so it wins on specificity alone and does not depend on source order or on
+     which @layer block ends up emitted last. It is also scoped to the wrapper,
+     so /#about, /#sectors and every other anchor on the corporate site keep the
+     original 5.5rem. Put data-im-anchor on any non-<section> jump target. */
+  .im-theme section[id],
+  .im-theme [data-im-anchor] {
+    scroll-margin-top: var(--im-scroll-offset);
+  }
+}

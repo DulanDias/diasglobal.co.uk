@@ -5,6 +5,9 @@ import { SITE_URL } from '@/lib/site'
 export const dynamic = 'force-static'
 
 const toolsLastMod = new Date('2026-04-01T00:00:00.000Z')
+const islandMerchantLastMod = new Date('2026-09-01T00:00:00.000Z')
+// Keep in step with MANAGEMENT_TRAINEE.datePosted in src/lib/careers.ts.
+const careersLastMod = new Date('2026-09-01T00:00:00.000Z')
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
@@ -65,6 +68,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: toolsLastMod,
       changeFrequency: 'monthly',
       priority: 0.82,
+    },
+    {
+      url: `${SITE_URL}/island-merchant`,
+      lastModified: islandMerchantLastMod,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/careers`,
+      lastModified: careersLastMod,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    // RETIREMENT: delete this entry when the vacancy is filled — see the note at
+    // the head of src/lib/careers.ts.
+    {
+      url: `${SITE_URL}/careers/management-trainee-sri-lanka`,
+      lastModified: careersLastMod,
+      changeFrequency: 'weekly',
+      priority: 0.75,
     },
     {
       url: `${SITE_URL}/privacy-policy`,
