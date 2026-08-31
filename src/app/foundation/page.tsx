@@ -9,7 +9,7 @@ import { defaultOgTwitter, standardRobots } from '@/lib/seo-metadata'
 export const metadata: Metadata = {
   title: 'Dias Global Foundation | The Charitable Arm of Dias Global Limited',
   description:
-    'The Dias Global Foundation identifies and helps people in genuine need. We provide carefully vetted one-off and recurring support — such as education sponsorship — until a meaningful milestone is reached. Funded by Dias Global Limited.',
+    'The Dias Global Foundation identifies and helps people in genuine need. We provide carefully vetted one-off and recurring support, such as education sponsorship, until a meaningful milestone is reached. Funded by Dias Global Limited.',
   keywords: [
     'Dias Global Foundation',
     'charity',

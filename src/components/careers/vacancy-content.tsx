@@ -112,7 +112,7 @@ export default function VacancyContent({ vacancy }: { vacancy: Vacancy }) {
               What the role involves
             </h2>
             <p className="section-subtitle">
-              This is a deliberately broad brief. You will not sit in one function — you will move
+              This is a deliberately broad brief. You will not sit in one function. You will move
               across them, and be expected to hold your own in each.
             </p>
           </div>
@@ -192,7 +192,7 @@ export default function VacancyContent({ vacancy }: { vacancy: Vacancy }) {
               Apply for this role
             </h2>
             <p className="section-subtitle">
-              Fill in the form below. You will be given an application reference — email your CV to
+              Fill in the form below. You will be given an application reference. Email your CV to
               us quoting it, and the two will be matched up at our end.
             </p>
           </div>
@@ -201,11 +201,11 @@ export default function VacancyContent({ vacancy }: { vacancy: Vacancy }) {
 
           <div className="text-center mt-12 max-w-2xl mx-auto">
             <p className="text-text-muted text-sm leading-relaxed">
-              Questions about the role before you apply? Write to our careers address —{' '}
+              Questions about the role before you apply? Write to our careers address:{' '}
               <ObfuscatedEmail
                 user={CAREERS_EMAIL_USER}
                 domain={CAREERS_EMAIL_DOMAIN}
-                subject={`Question — ${APPLICATION_SUBJECT}`}
+                subject={`Question about ${APPLICATION_SUBJECT}`}
                 label="ask us anything"
                 className="text-accent underline underline-offset-2"
               />
@@ -232,8 +232,8 @@ export default function VacancyContent({ vacancy }: { vacancy: Vacancy }) {
             </h2>
             <p className="text-text-muted leading-relaxed">
               We welcome applications from everyone who meets the requirements of the role. If you
-              need any adjustment to take part in our selection process — captions or a written
-              alternative to a video call, extra time, a different format, or anything else — tell
+              need any adjustment to take part in our selection process, whether that is captions or a written
+              alternative to a video call, extra time, a different format, or anything else, tell
               us in the form above or by email and we will arrange it. Asking has no bearing on how
               your application is assessed.
             </p>

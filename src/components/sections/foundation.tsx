@@ -3,7 +3,7 @@ import ObfuscatedEmail from '@/components/foundation/obfuscated-email'
 
 const pillars = [
   { icon: '🔍', title: 'Vetted & Verified', body: 'Every case is carefully verified, so help reaches those who genuinely need it.' },
-  { icon: '🤝', title: 'Committed Support', body: 'One-off or recurring — we stay until a meaningful milestone is reached.' },
+  { icon: '🤝', title: 'Committed Support', body: 'One-off or recurring, we stay until a meaningful milestone is reached.' },
   { icon: '🎓', title: 'Education First', body: 'From scholarship tuition to essentials, we help sponsor brighter futures.' },
   { icon: '💚', title: 'Dignity Always', body: 'Support is given with respect, discretion, and care for every family.' },
 ]
@@ -16,7 +16,7 @@ export default function FoundationSection() {
           <span className="section-eyebrow">Dias Global Foundation</span>
           <h2 className="section-title">Giving Back, With Care and Diligence</h2>
           <p className="section-subtitle">
-            Our charitable arm identifies and helps people in genuine need — supporting
+            Our charitable arm identifies and helps people in genuine need, supporting
             carefully vetted families with committed, dignified assistance until they reach a
             meaningful milestone.
           </p>
@@ -37,7 +37,7 @@ export default function FoundationSection() {
           <ObfuscatedEmail
             user="ZHVsYW4="
             domain="ZGlhc2dsb2JhbC5jby51aw=="
-            subject="Dias Global Foundation — Contribution & Enquiry"
+            subject="Dias Global Foundation: Contribution & Enquiry"
             label="Contribute"
             className="btn btn-secondary"
           />

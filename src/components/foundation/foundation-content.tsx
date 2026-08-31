@@ -5,7 +5,7 @@ import ObfuscatedEmail from '@/components/foundation/obfuscated-email'
 // appears as plaintext in the served HTML — see ObfuscatedEmail.
 const EMAIL_USER = 'ZHVsYW4=' // "dulan"
 const EMAIL_DOMAIN = 'ZGlhc2dsb2JhbC5jby51aw==' // "diasglobal.co.uk"
-const CONTRIBUTE_SUBJECT = 'Dias Global Foundation — Contribution & Enquiry'
+const CONTRIBUTE_SUBJECT = 'Dias Global Foundation: Contribution & Enquiry'
 
 export default function FoundationContent() {
   return (
@@ -25,7 +25,7 @@ export default function FoundationContent() {
               <span className="text-accent block">Foundation</span>
             </h1>
             <p className="text-lg md:text-xl text-muted mb-8 max-w-2xl mx-auto leading-relaxed">
-              We identify and help those in genuine need — supporting carefully vetted
+              We identify and help those in genuine need, supporting carefully vetted
               individuals and families with committed, dignified assistance until they
               reach a meaningful milestone.
             </p>
@@ -54,7 +54,7 @@ export default function FoundationContent() {
             <p className="section-subtitle">
               The Dias Global Foundation is the charitable arm of our family holding
               company. Our objective is simple: to find people facing real hardship and to
-              help them meaningfully — funded by Dias Global Limited and supported by those
+              help them meaningfully, funded by Dias Global Limited and supported by those
               who wish to give.
             </p>
           </div>
@@ -71,8 +71,8 @@ export default function FoundationContent() {
               <div className="text-5xl mb-6">🤝</div>
               <h3 className="text-2xl font-semibold mb-4 text-text">Committed Support</h3>
               <p className="text-text-muted leading-relaxed">
-                We don&apos;t give once and walk away. Where it matters, we commit — one-off or
-                recurring — until a clear milestone is reached.
+                We don&apos;t give once and walk away. Where it matters, we commit, one-off or
+                recurring, until a clear milestone is reached.
               </p>
             </div>
             <div className="card text-center">
@@ -94,7 +94,7 @@ export default function FoundationContent() {
             <span className="section-eyebrow">Our Model</span>
             <h2 className="section-title">Two Ways We Support</h2>
             <p className="section-subtitle">
-              Once a case is vetted, we design the right kind of help for the circumstances —
+              Once a case is vetted, we design the right kind of help for the circumstances,
               from a single intervention to sustained support with a defined endpoint.
             </p>
           </div>
@@ -111,7 +111,7 @@ export default function FoundationContent() {
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-text">One-Off Support</h3>
               <p className="text-text-muted mb-6 leading-relaxed">
-                A direct, immediate response to a pressing need — clearing an urgent debt,
+                A direct, immediate response to a pressing need: clearing an urgent debt,
                 covering an essential purchase, or relieving a moment of acute hardship.
               </p>
               <ul className="space-y-2">
@@ -133,7 +133,7 @@ export default function FoundationContent() {
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-text">Recurring Support, Until a Milestone</h3>
               <p className="text-text-muted mb-6 leading-relaxed">
-                Sustained help on a regular basis toward a defined goal — for example,
+                Sustained help on a regular basis toward a defined goal. For example,
                 sponsoring a child&apos;s tuition and study costs through to an examination, then
                 celebrating that milestone together.
               </p>
@@ -171,11 +171,11 @@ export default function FoundationContent() {
                 },
                 {
                   title: 'Vetting & Verification',
-                  body: 'Every case is carefully assessed and verified — understanding the circumstances, needs, and how support can make a lasting difference.',
+                  body: 'Every case is carefully assessed and verified, understanding the circumstances, needs, and how support can make a lasting difference.',
                 },
                 {
                   title: 'A Tailored Support Plan',
-                  body: 'We agree the right form of help — one-off or recurring — with a clear milestone that defines what success looks like.',
+                  body: 'We agree the right form of help, one-off or recurring, with a clear milestone that defines what success looks like.',
                 },
                 {
                   title: 'Ongoing Care Until the Milestone',
@@ -208,7 +208,7 @@ export default function FoundationContent() {
               </h2>
               <p className="text-text-muted leading-relaxed mb-4">
                 The Foundation is funded by Dias Global Limited. This means our commitments to
-                the families we support are backed by the holding company — not dependent on
+                the families we support are backed by the holding company, not dependent on
                 fundraising.
               </p>
               <p className="text-text-muted leading-relaxed">

@@ -21,12 +21,12 @@ const DESCRIPTION =
   'Pre-launch: register retail or wholesale interest in Ceylon cinnamon sticks and kithul jaggery, or pitch your product as a Sri Lankan producer.'
 
 const SOCIAL_DESCRIPTION =
-  'Importer and distributor of Sri Lankan products into the UK and Europe. Ceylon cinnamon sticks and kithul jaggery. Pre-launch — register your interest.'
+  'Importer and distributor of Sri Lankan products into the UK and Europe. Ceylon cinnamon sticks graded C4 and diced kithul jaggery, in sealed retail packs. Retail and trade enquiries welcome.'
 
 // This page does NOT spread defaultOgTwitter: that helper hard-codes /logo.png with
 // the holding-company alt text, so every share of a page about cinnamon and jaggery
 // showed the corporate Dias Global logo.
-const OG_IMAGE = PRODUCTS[0].image
+const OG_IMAGE = PRODUCTS[0].images.scene
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },

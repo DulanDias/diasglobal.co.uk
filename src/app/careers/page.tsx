@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ...defaultOgTwitter(
     '/careers',
     'Careers | Dias Global Limited',
-    'Open roles at Dias Global Limited. Broad, hands-on positions across finance, operations and business development — and how to apply.'
+    'Open roles at Dias Global Limited. Broad, hands-on positions across finance, operations and business development, and how to apply.'
   ),
   alternates: {
     canonical: '/careers',

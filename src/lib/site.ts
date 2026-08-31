@@ -10,7 +10,7 @@ export const DEFAULT_OG_IMAGE = {
   path: '/logo.png' as const,
   width: 1200,
   height: 630,
-  alt: `${SITE_NAME} — UK family global holding company`,
+  alt: `${SITE_NAME}, UK family global holding company`,
 }
 
 export const ORGANIZATION = {

@@ -35,8 +35,14 @@ export default function IslandNav() {
 
           <span aria-hidden="true" className="hidden h-6 w-px shrink-0 bg-[#b08848]/50 sm:block" />
 
-          <nav aria-label="The Island Merchant sections" className="min-w-0 flex-1">
-            <ul className="flex items-center gap-1 overflow-x-auto whitespace-nowrap py-1">
+          {/* The trailing fade is the only affordance that the strip scrolls, since the
+              scrollbar itself is hidden (.im-navbar-scroll in island-merchant-content).
+              It is masked out once everything fits, so it never sits over a full row. */}
+          <nav
+            aria-label="The Island Merchant sections"
+            className="relative min-w-0 flex-1 after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:w-10 after:bg-gradient-to-l after:from-[#faf7f0] after:to-transparent after:content-[''] lg:after:hidden"
+          >
+            <ul className="im-navbar-scroll flex items-center gap-1 overflow-x-auto whitespace-nowrap py-1 pr-10 lg:pr-0">
               {IM_SECTION_NAV.map((link) => (
                 <li key={link.id}>
                   <a

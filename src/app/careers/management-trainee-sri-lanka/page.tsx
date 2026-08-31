@@ -15,7 +15,7 @@ const path = vacancyUrl(vacancy.slug)
 // truncates around 60, so the duplicate was crowding out the role itself.
 const title = 'Management Trainee (Remote, Sri Lanka) | Dias Global Limited'
 const description =
-  'Management Trainee with Dias Global Limited, a UK company — performed remotely from Sri Lanka. A broad, hands-on role across finance, tax and compliance, operations, HR administration and business development.'
+  'Management Trainee with Dias Global Limited, a UK company, performed remotely from Sri Lanka. A broad, hands-on role across finance, tax and compliance, operations, HR administration and business development.'
 
 export const metadata: Metadata = {
   title: { absolute: title },

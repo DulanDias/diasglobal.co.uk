@@ -86,17 +86,43 @@ async function keyOutBackground(inputPath, { reversed = false } = {}) {
   return sharp(out, { raw: { width: info.width, height: info.height, channels: 4 } })
 }
 
-/** Product packaging shot → 4:3 card image, webp for the page + jpg as a durable fallback. */
+/**
+ * Each master is a single 1448x1086 photograph of BOTH pouches side by side.
+ * Shown whole in a card the pouches end up too small to read, and any crop to a
+ * portrait container lands on the gap between them — so the two pouches are cut
+ * out into their own portrait images. These boxes are measured from the masters;
+ * both photographs share the same staging, so both use the same pair.
+ */
+const POUCH = {
+  front: { left: 80, top: 50, width: 620, height: 1010 },
+  back: { left: 730, top: 50, width: 620, height: 1010 },
+}
+
+/** Product packaging shot → the full 4:3 scene, plus a portrait cut-out per pouch. */
 async function packagingShot(master, slug) {
   const input = join(SRC, master)
-  await sharp(input)
-    .resize(1200, 900, { fit: 'cover' })
-    .webp({ quality: 86, effort: 6 })
-    .toFile(join(OUT, `${slug}.webp`))
-  await sharp(input)
-    .resize(1200, 900, { fit: 'cover' })
-    .jpeg({ quality: 88, mozjpeg: true })
-    .toFile(join(OUT, `${slug}.jpg`))
+
+  for (const [fmt, opts] of [
+    ['webp', { quality: 86, effort: 6 }],
+    ['jpg', { quality: 88, mozjpeg: true }],
+  ]) {
+    const encode = (p) => (fmt === 'webp' ? p.webp(opts) : p.jpeg(opts))
+
+    await encode(sharp(input).resize(1200, 900, { fit: 'cover' })).toFile(
+      join(OUT, `${slug}.${fmt}`)
+    )
+
+    for (const [face, box] of Object.entries(POUCH)) {
+      // The back panel only ever renders in a ~160px slot inside a disclosure, and
+      // it cannot be lazy-loaded there (Chromium never queues a lazy image that was
+      // inside a closed <details> at parse time), so it ships eagerly at a size that
+      // suits the slot rather than at full crop resolution.
+      const pipeline = sharp(input).extract(box)
+      await encode(face === 'back' ? pipeline.resize({ width: 420 }) : pipeline).toFile(
+        join(OUT, `${slug}-${face}.${fmt}`)
+      )
+    }
+  }
 }
 
 async function main() {

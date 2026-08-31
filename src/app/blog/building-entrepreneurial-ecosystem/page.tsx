@@ -168,7 +168,7 @@ export default function BuildingEntrepreneurialEcosystemPage() {
 
               <h2 className="text-3xl font-bold text-text mb-6 mt-12">Conclusion</h2>
               <p className="text-text-muted leading-relaxed mb-6">
-                Building entrepreneurial ecosystems is not just about individual success—it's about creating the conditions for widespread innovation and economic growth. At Dias Global, we believe that by investing in ecosystem development, we're not only supporting individual entrepreneurs but also contributing to the broader innovation landscape.
+                Building entrepreneurial ecosystems is not just about individual success. It's about creating the conditions for widespread innovation and economic growth. At Dias Global, we believe that by investing in ecosystem development, we're not only supporting individual entrepreneurs but also contributing to the broader innovation landscape.
               </p>
 
               <p className="text-text-muted leading-relaxed">

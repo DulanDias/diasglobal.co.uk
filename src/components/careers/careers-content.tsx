@@ -7,7 +7,7 @@ import {
   vacancyUrl,
 } from '@/lib/careers'
 
-const SPECULATIVE_SUBJECT = 'Careers enquiry — Dias Global Limited'
+const SPECULATIVE_SUBJECT = 'Careers enquiry: Dias Global Limited'
 
 function PinIcon() {
   return (
@@ -128,7 +128,7 @@ export default function CareersContent() {
           ) : (
             <div className="max-w-2xl mx-auto card text-center">
               <p className="text-text-muted leading-relaxed">
-                There are no open roles at the moment. You are still welcome to write to us — see
+                There are no open roles at the moment. You are still welcome to write to us. See
                 below.
               </p>
             </div>
@@ -156,7 +156,7 @@ export default function CareersContent() {
               <p className="text-text-muted leading-relaxed mb-4">
                 Each open role has its own page with the full brief and an application form. The
                 form cannot carry attachments, so when you send it you are given an application
-                reference — email your CV to us quoting that reference and the two are matched up
+                reference. Email your CV to us quoting that reference and the two are matched up
                 at our end.
               </p>
               {hasVacancies && (
@@ -169,8 +169,8 @@ export default function CareersContent() {
             <div className="card">
               <h3 className="text-xl font-semibold text-text mb-4">By email</h3>
               <p className="text-text-muted leading-relaxed mb-4">
-                If you would rather not use the form — or nothing listed here fits and you still
-                think there is something you could do for us — write to our careers address with
+                If you would rather not use the form, or nothing listed here fits and you still
+                think there is something you could do for us, write to our careers address with
                 your CV and a short covering note saying what you are looking for.
               </p>
               <ObfuscatedEmail
@@ -213,8 +213,8 @@ export default function CareersContent() {
             </p>
             <p className="text-text-muted leading-relaxed">
               We will make reasonable adjustments to our selection process on request. If you need
-              anything to take part — captions or a written alternative to a video call, extra
-              time, a different format, or anything else — tell us in the form on the role page or
+              anything to take part, whether that is captions or a written alternative to a video call, extra
+              time, a different format, or anything else, tell us in the form on the role page or
               by email and we will arrange it. Asking has no bearing on how your application is
               assessed.
             </p>

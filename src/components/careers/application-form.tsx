@@ -202,7 +202,7 @@ export default function ApplicationForm({ vacancy }: { vacancy: Vacancy }) {
     // form-filler extension had filled the hidden field.
     body.append('_gotcha', honeypot)
     body.append('reference', ref)
-    body.append('role', `${vacancy.title} — ${vacancy.location}`)
+    body.append('role', `${vacancy.title}, ${vacancy.location}`)
     body.append('roleId', vacancy.identifier)
     body.append('fullName', values.fullName.trim())
     body.append('email', values.email.trim())
@@ -247,8 +247,8 @@ export default function ApplicationForm({ vacancy }: { vacancy: Vacancy }) {
 
   const isSubmitting = status === 'submitting'
   const cvSubject = reference
-    ? `${APPLICATION_SUBJECT} — CV — ${reference}`
-    : `${APPLICATION_SUBJECT} — CV`
+    ? `${APPLICATION_SUBJECT}: CV ${reference}`
+    : `${APPLICATION_SUBJECT}: CV`
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -261,7 +261,7 @@ export default function ApplicationForm({ vacancy }: { vacancy: Vacancy }) {
         {status === 'success' && (
           <div className="bg-card border border-[color-mix(in_srgb,var(--color-accent)_35%,transparent)] rounded-2xl p-6 md:p-8">
             <h3 className="text-xl font-semibold text-text mb-3">
-              Thank you — your application has been sent.
+              Thank you. Your application has been sent.
             </h3>
             <p className="text-text-muted leading-relaxed mb-4">
               Your application reference is{' '}
@@ -304,10 +304,10 @@ export default function ApplicationForm({ vacancy }: { vacancy: Vacancy }) {
         {status === 'error' && (
           <div className="bg-card border border-red-600/40 rounded-2xl p-6 md:p-8">
             <h3 className="text-xl font-semibold text-text mb-3">
-              Sorry — your application could not be sent.
+              Sorry, your application could not be sent.
             </h3>
             <p className="text-text-muted leading-relaxed mb-4">
-              Something went wrong on the way to us. Nothing you typed has been lost — press
+              Something went wrong on the way to us. Nothing you typed has been lost. Press
               &quot;Send application&quot; again to retry, or send your application and CV by email
               instead, which reaches exactly the same place.
             </p>
@@ -496,7 +496,7 @@ export default function ApplicationForm({ vacancy }: { vacancy: Vacancy }) {
           />
           <FieldHint
             id="qualifications"
-            hint="Accounting, business, finance or a related field — including anything you are part-qualified in or currently studying. Equivalent practical experience counts, so say so if that is your route."
+            hint="Accounting, business, finance or a related field, including anything you are part-qualified in or currently studying. Equivalent practical experience counts, so say so if that is your route."
           />
           <FieldError id="qualifications" message={errors.qualifications} />
         </div>
@@ -519,7 +519,7 @@ export default function ApplicationForm({ vacancy }: { vacancy: Vacancy }) {
           />
           <FieldHint
             id="experience"
-            hint="Bookkeeping, reconciliations, tax or VAT filings, HR or payroll administration, operations, research — whatever of this you have done, and where."
+            hint="Bookkeeping, reconciliations, tax or VAT filings, HR or payroll administration, operations, research: whatever of this you have done, and where."
           />
           <FieldError id="experience" message={errors.experience} />
         </div>
@@ -543,7 +543,7 @@ export default function ApplicationForm({ vacancy }: { vacancy: Vacancy }) {
             />
             <FieldHint
               id="cvLink"
-              hint="Optional. This form cannot take attachments, so a link is the quickest route — otherwise email the CV using the reference you get on the next step."
+              hint="Optional. This form cannot take attachments, so a link is the quickest route. Otherwise email the CV using the reference you get on the next step."
             />
             <FieldError id="cvLink" message={errors.cvLink} />
           </div>
@@ -606,7 +606,7 @@ export default function ApplicationForm({ vacancy }: { vacancy: Vacancy }) {
           />
           <FieldHint
             id="adjustments"
-            hint="Optional. Captions or a written alternative to a video call, extra time, a different format — tell us what would help and we will arrange it. This has no bearing on how your application is assessed."
+            hint="Optional. Captions or a written alternative to a video call, extra time, a different format: tell us what would help and we will arrange it. This has no bearing on how your application is assessed."
           />
         </div>
 
@@ -655,7 +655,7 @@ export default function ApplicationForm({ vacancy }: { vacancy: Vacancy }) {
             {ORGANIZATION.legalName} (company no. {ORGANIZATION.companyNumber}) is the controller
             of the information you submit here. We use it only to assess your application for this
             role, on the basis that doing so is necessary to take steps at your request before
-            entering into a contract — not on the basis of your consent, so you are not asked to
+            entering into a contract, not on the basis of your consent, so you are not asked to
             give any. Your submission is delivered to us by our form provider, Formspree, which is
             based in the United States, and by email, so your information is transferred outside
             the UK under appropriate safeguards. We keep applications for six months after the
@@ -664,7 +664,7 @@ export default function ApplicationForm({ vacancy }: { vacancy: Vacancy }) {
             <ObfuscatedEmail
               user={CAREERS_EMAIL_USER}
               domain={CAREERS_EMAIL_DOMAIN}
-              subject="Data protection request — job application"
+              subject="Data protection request: job application"
               label="our careers address"
               className="text-accent underline underline-offset-2"
               showAddress
@@ -704,7 +704,7 @@ export default function ApplicationForm({ vacancy }: { vacancy: Vacancy }) {
           </button>
 
           <p className="text-sm text-text-muted leading-relaxed">
-            Prefer email? Send your CV and a short covering note to our careers address instead —{' '}
+            Prefer email? Send your CV and a short covering note to our careers address instead:{' '}
             <ObfuscatedEmail
               user={CAREERS_EMAIL_USER}
               domain={CAREERS_EMAIL_DOMAIN}

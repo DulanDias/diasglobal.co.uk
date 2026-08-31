@@ -10,6 +10,18 @@ export type ProductImage = {
   alt: string
 }
 
+/**
+ * The master photograph stages both pouches side by side. `scene` is that whole
+ * shot; `front` and `back` are portrait cut-outs of each pouch, because at card
+ * size the full scene renders both faces too small to read. All three are built
+ * by scripts/build-island-merchant-images.mjs.
+ */
+export type ProductImageSet = {
+  scene: ProductImage
+  front: ProductImage
+  back: ProductImage
+}
+
 export type Product = {
   slug: ProductSlug
   /** Exact pack name. Do not paraphrase. */
@@ -24,7 +36,7 @@ export type Product = {
   /** Body copy paragraphs for the product card. */
   copy: string[]
   specs: SpecRow[]
-  image: ProductImage
+  images: ProductImageSet
   /** Label used in the enquiry summary quantity lines. */
   summaryLabel: string
 }
@@ -114,9 +126,9 @@ export const PRODUCTS: Product[] = [
     netWeight: '100 g',
     frontOfPack: ['Premium Ceylon Cinnamon', 'Hand Selected | Sun Dried | Naturally Aromatic'],
     copy: [
-      'True Ceylon cinnamon — Cinnamomum verum — not the cassia sold as “cinnamon” in most supermarkets. You can see the difference in your hand: many fine layers rolled into a brittle, tan quill that crumbles between your fingers, where cassia is a single thick, hard, dark curl that snaps like a twig.',
+      'True Ceylon cinnamon, Cinnamomum verum, and not the cassia sold as “cinnamon” in most supermarkets. You can see the difference in your hand: many fine layers rolled into a brittle, tan quill that crumbles between your fingers, where cassia is a single thick, hard, dark curl that snaps like a twig.',
       'Grown in the wet-zone districts of south-western Sri Lanka, hand selected, and sun dried to hold on to the aroma and the natural sweetness. The flavour is delicate, sweet and layered rather than blunt and hot.',
-      'Graded C4 — a Continental-family export grade under Sri Lanka’s national cinnamon grading system, which sorts quills by diameter, count per kilogram and surface uniformity. Grading certification available on request.',
+      'Graded C4, a Continental-family export grade under Sri Lanka’s national cinnamon grading system, which sorts quills by diameter, count per kilogram and surface uniformity. Grading certification available on request.',
     ],
     specs: [
       { label: 'Botanical name', value: 'Cinnamomum verum' },
@@ -127,18 +139,34 @@ export const PRODUCTS: Product[] = [
       { label: 'Origin', value: 'Product of Sri Lanka' },
       { label: 'Storage', value: 'Cool and dry, out of direct sunlight. Keep the pack sealed.' },
     ],
-    image: {
-      webp: '/island-merchant/cinnamon-quills.webp',
-      jpg: '/island-merchant/cinnamon-quills.jpg',
-      width: 1200,
-      height: 900,
-      alt: 'Front and back of the Island Merchant Ceylon Cinnamon Sticks retail pouch, 100 g',
+    images: {
+      scene: {
+        webp: '/island-merchant/cinnamon-quills.webp',
+        jpg: '/island-merchant/cinnamon-quills.jpg',
+        width: 1200,
+        height: 900,
+        alt: 'Front and back of the Island Merchant Ceylon Cinnamon Sticks retail pouch, 100 g',
+      },
+      front: {
+        webp: '/island-merchant/cinnamon-quills-front.webp',
+        jpg: '/island-merchant/cinnamon-quills-front.jpg',
+        width: 620,
+        height: 1010,
+        alt: 'The Island Merchant Ceylon Cinnamon Sticks retail pouch, front of pack, 100 g',
+      },
+      back: {
+        webp: '/island-merchant/cinnamon-quills-back.webp',
+        jpg: '/island-merchant/cinnamon-quills-back.jpg',
+        width: 420,
+        height: 684,
+        alt: 'Back of the Ceylon Cinnamon Sticks pouch showing ingredients, grade, net weight, origin, storage and importer details',
+      },
     },
     summaryLabel: 'Ceylon Cinnamon Sticks C4, 100 g',
   },
   {
     slug: 'ceylon-kithul-jaggery-diced',
-    name: 'Ceylon Kithul Jaggery — DICED',
+    name: 'Ceylon Kithul Jaggery, Diced',
     botanicalName: 'Caryota urens',
     packWeightGrams: 200,
     netWeight: '200 g',
@@ -147,9 +175,9 @@ export const PRODUCTS: Product[] = [
       'Unrefined | Natural Sweetener | Rich & Aromatic',
     ],
     copy: [
-      'Made from the sap of kithul palm blossoms — Caryota urens. The sap is tapped by hand from the unopened flower, filtered, and slowly boiled down until it sets. Nothing is added and nothing is refined out. The flavour is deep and caramel-like, with a smoky treacle depth that refined sugar simply does not have.',
+      'Made from the sap of kithul palm blossoms, Caryota urens. The sap is tapped by hand from the unopened flower, filtered, and slowly boiled down until it sets. Nothing is added and nothing is refined out. The flavour is deep and caramel-like, with a smoky treacle depth that refined sugar simply does not have.',
       'The traditional practice of kithul tapping was inscribed on UNESCO’s Representative List of the Intangible Cultural Heritage of Humanity in December 2025. It is tapped in the wet-zone hills of Sabaragamuwa and the Southern Province.',
-      'Traditionally, kithul jaggery is set in a solid dome that has to be chipped or grated. We buy ours diced into cubes — easier to portion by hand, quicker to dissolve into a pan or a cup, and it fills a retail pack to a consistent weight without breaking up in transit.',
+      'Traditionally, kithul jaggery is set in a solid dome that has to be chipped or grated. We buy ours diced into cubes: easier to portion by hand, quicker to dissolve into a pan or a cup, and it fills a retail pack to a consistent weight without breaking up in transit.',
     ],
     specs: [
       { label: 'Botanical source', value: 'Caryota urens (kithul palm)' },
@@ -163,14 +191,30 @@ export const PRODUCTS: Product[] = [
           'Airtight, cool and dry, out of the sun. Kithul jaggery draws in moisture from the air.',
       },
     ],
-    image: {
-      webp: '/island-merchant/kithul-jaggery.webp',
-      jpg: '/island-merchant/kithul-jaggery.jpg',
-      width: 1200,
-      height: 900,
-      alt: 'Front and back of the Island Merchant Ceylon Kithul Jaggery diced retail pouch, 200 g',
+    images: {
+      scene: {
+        webp: '/island-merchant/kithul-jaggery.webp',
+        jpg: '/island-merchant/kithul-jaggery.jpg',
+        width: 1200,
+        height: 900,
+        alt: 'Front and back of the Island Merchant Ceylon Kithul Jaggery diced retail pouch, 200 g',
+      },
+      front: {
+        webp: '/island-merchant/kithul-jaggery-front.webp',
+        jpg: '/island-merchant/kithul-jaggery-front.jpg',
+        width: 620,
+        height: 1010,
+        alt: 'The Island Merchant Ceylon Kithul Jaggery diced retail pouch, front of pack, 200 g',
+      },
+      back: {
+        webp: '/island-merchant/kithul-jaggery-back.webp',
+        jpg: '/island-merchant/kithul-jaggery-back.jpg',
+        width: 420,
+        height: 684,
+        alt: 'Back of the Ceylon Kithul Jaggery pouch showing ingredients, grade, net weight, origin, storage and importer details',
+      },
     },
-    summaryLabel: 'Ceylon Kithul Jaggery DICED, 200 g',
+    summaryLabel: 'Ceylon Kithul Jaggery Diced, 200 g',
   },
 ]
 
@@ -179,30 +223,30 @@ export const AUDIENCES: Audience[] = [
     mode: 'retail',
     label: 'I want to buy for myself',
     blurb: 'Small quantities for your own kitchen.',
-    subject: 'Island Merchant — RETAIL interest',
+    subject: 'Island Merchant: RETAIL interest',
     summaryType: 'Retail',
   },
   {
     mode: 'wholesale',
     label: 'I am buying for a business',
     blurb: 'Trade and wholesale, in the same retail packs.',
-    subject: 'Island Merchant — WHOLESALE / TRADE interest',
+    subject: 'Island Merchant: WHOLESALE / TRADE interest',
     summaryType: 'Wholesale / Trade',
   },
   {
     mode: 'producer',
     label: 'I produce something in Sri Lanka',
     blurb: 'Pitch your product for us to import and distribute.',
-    subject: 'Island Merchant — PRODUCER / SUPPLIER enquiry',
+    subject: 'Island Merchant: PRODUCER / SUPPLIER enquiry',
     summaryType: 'Producer / Supplier',
   },
 ]
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
-    question: 'Can I buy from you today?',
+    question: 'How do I order?',
     answer:
-      'Not yet. The Island Merchant is pre-launch. We are registering interest now so that our first shipment matches real demand. Register your interest and we will contact you when we have stock, pricing and a way to order.',
+      'Tell us what you need through the enquiry form on this page, whether that is a couple of pouches for your own kitchen or a trade quantity for resale. We confirm current availability, pricing and delivery for your order and come straight back to you. There is nothing to pay at the enquiry stage.',
   },
   {
     question: 'What is the difference between Ceylon cinnamon and the cinnamon in the supermarket?',
@@ -217,12 +261,12 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: 'What size are the packs?',
     answer:
-      'Ceylon Cinnamon Sticks come in a 100 g sealed retail pouch. Ceylon Kithul Jaggery — DICED comes in a 200 g sealed retail pouch. Wholesale buyers order in those same retail packs, not in cases and not in bulk kilos.',
+      'Ceylon Cinnamon Sticks come in a 100 g sealed retail pouch. Ceylon Kithul Jaggery, Diced comes in a 200 g sealed retail pouch. Wholesale buyers order in those same retail packs, not in cases and not in bulk kilos.',
   },
   {
     question: 'How should I store them?',
     answer:
-      'Keep the cinnamon in a cool, dry place away from direct sunlight, with the pack sealed — whole quills hold their aroma far better than ground cinnamon. Kithul jaggery draws in moisture from the air, so once opened keep it in an airtight container somewhere cool, dry and out of the sun, and it will stay firm and easy to portion.',
+      'Keep the cinnamon in a cool, dry place away from direct sunlight, with the pack sealed, because whole quills hold their aroma far better than ground cinnamon. Kithul jaggery draws in moisture from the air, so once opened keep it in an airtight container somewhere cool, dry and out of the sun, and it will stay firm and easy to portion.',
   },
   {
     question: 'I produce something in Sri Lanka. How do I get it to the UK through you?',

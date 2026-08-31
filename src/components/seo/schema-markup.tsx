@@ -134,7 +134,7 @@ export function BlogCollectionSchema({ posts }: BlogCollectionSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Dias Global Blog — Investment & Innovation Insights',
+    name: 'Dias Global Blog: Investment & Innovation Insights',
     description:
       'Expert insights on investment strategies, technology trends, and entrepreneurial ventures from Dias Global Limited.',
     url: `${SITE_URL}/blog`,
@@ -369,7 +369,7 @@ const DGL_POSTAL_ADDRESS = {
 } as const
 
 const IM_DESCRIPTION =
-  'The Island Merchant is the importing and distribution line of Dias Global Limited, bringing Sri Lankan products — Ceylon cinnamon and kithul jaggery — to the United Kingdom and Europe. Pre-launch: registering interest ahead of the first shipment.'
+  'The Island Merchant is the import and distribution line of Dias Global Limited, supplying Sri Lankan products to the United Kingdom and Europe. The range covers Ceylon cinnamon sticks graded C4 and diced kithul jaggery, in sealed retail packs, for both retail and trade buyers.'
 
 /** Brand / Organization node for The Island Merchant, tied to Dias Global
  *  Limited in both directions (parentOrganization on the child, subOrganization
@@ -453,8 +453,8 @@ export function IslandMerchantProductSchema({
       description: product.copy.join(' '),
       url: `${IM_PAGE_URL}#im-products`,
       image: [
-        `${SITE_URL}${product.image.jpg}`,
-        `${SITE_URL}${product.image.webp}`,
+        `${SITE_URL}${product.images.front.jpg}`,
+        `${SITE_URL}${product.images.scene.jpg}`,
       ],
       brand: { '@id': IM_ORG_ID },
       countryOfOrigin: { '@type': 'Country', name: 'Sri Lanka' },

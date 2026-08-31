@@ -46,7 +46,7 @@ export const CAREERS_EMAIL_DOMAIN = 'ZGlhc2dsb2JhbC5jby51aw==' // 'diasglobal.co
 /** Re-exported so callers of this module keep a single import site. */
 export { FORMSPREE_ENDPOINT } from '@/lib/site'
 
-export const APPLICATION_SUBJECT = 'Careers application — Management Trainee (Sri Lanka)'
+export const APPLICATION_SUBJECT = 'Careers application: Management Trainee (Sri Lanka)'
 
 export const APPLICATION_REFERENCE_PREFIX = 'DGL-MT-'
 
@@ -58,7 +58,7 @@ export const APPLICATION_REFERENCE_LENGTH = 6
 export const MANAGEMENT_TRAINEE: Vacancy = {
   slug: 'management-trainee-sri-lanka',
   title: 'Management Trainee',
-  location: 'Remote — Sri Lanka',
+  location: 'Remote, Sri Lanka',
   workingPattern: 'Full-time equivalent, coordinated to UK business hours',
   workHours: 'Full-time equivalent, coordinated to UK business hours',
   applicantCountry: 'Sri Lanka',
@@ -93,7 +93,7 @@ export const MANAGEMENT_TRAINEE: Vacancy = {
       heading: 'Finance and accounting',
       items: [
         'Bookkeeping, and keeping the financial records accurate and current.',
-        'Accounts payable and receivable — raising invoices, tracking payments, running reconciliations.',
+        'Accounts payable and receivable: raising invoices, tracking payments, running reconciliations.',
         'Bank and petty-cash reconciliations, and expense tracking.',
         'Helping to prepare budgets, monitor cash flow and produce management and financial reports.',
         'Liaising with our external accountants and auditors.',
@@ -103,7 +103,7 @@ export const MANAGEMENT_TRAINEE: Vacancy = {
       id: 'taxation-compliance',
       heading: 'Taxation and compliance',
       items: [
-        'Helping to prepare tax computations, returns and filings, and keeping the supporting records — income tax, VAT and other applicable taxes.',
+        'Helping to prepare tax computations, returns and filings, and keeping the supporting records for income tax, VAT and other applicable taxes.',
         'Supporting statutory, regulatory and corporate governance compliance and the documentation behind it.',
         'Liaising with tax advisers and the relevant authorities.',
       ],
@@ -130,7 +130,7 @@ export const MANAGEMENT_TRAINEE: Vacancy = {
   essential: [
     'You are located in Sri Lanka and able to work from there.',
     'You are legally able to work in Sri Lanka.',
-    'A qualification in accounting, business, finance or a related field — or equivalent practical experience.',
+    'A qualification in accounting, business, finance or a related field, or equivalent practical experience.',
     'You can write clear, accurate business English for correspondence with UK clients and advisers.',
     'You are comfortable with spreadsheets, accounting software and online collaboration tools.',
     'You are accurate with detail and methodical about records.',
@@ -176,14 +176,14 @@ export const MANAGEMENT_TRAINEE: Vacancy = {
     '<h3>Finance and accounting</h3>' +
     '<ul>' +
     '<li>Bookkeeping, and keeping the financial records accurate and current.</li>' +
-    '<li>Accounts payable and receivable — raising invoices, tracking payments, running reconciliations.</li>' +
+    '<li>Accounts payable and receivable: raising invoices, tracking payments, running reconciliations.</li>' +
     '<li>Bank and petty-cash reconciliations, and expense tracking.</li>' +
     '<li>Helping to prepare budgets, monitor cash flow and produce management and financial reports.</li>' +
     '<li>Liaising with our external accountants and auditors.</li>' +
     '</ul>' +
     '<h3>Taxation and compliance</h3>' +
     '<ul>' +
-    '<li>Helping to prepare tax computations, returns and filings, and keeping the supporting records — income tax, VAT and other applicable taxes.</li>' +
+    '<li>Helping to prepare tax computations, returns and filings, and keeping the supporting records for income tax, VAT and other applicable taxes.</li>' +
     '<li>Supporting statutory, regulatory and corporate governance compliance and the documentation behind it.</li>' +
     '<li>Liaising with tax advisers and the relevant authorities.</li>' +
     '</ul>' +
@@ -204,7 +204,7 @@ export const MANAGEMENT_TRAINEE: Vacancy = {
     '<ul>' +
     '<li>You are located in Sri Lanka and able to work from there.</li>' +
     '<li>You are legally able to work in Sri Lanka.</li>' +
-    '<li>A qualification in accounting, business, finance or a related field — or equivalent practical experience.</li>' +
+    '<li>A qualification in accounting, business, finance or a related field, or equivalent practical experience.</li>' +
     '<li>You can write clear, accurate business English for correspondence with UK clients and advisers.</li>' +
     '<li>You are comfortable with spreadsheets, accounting software and online collaboration tools.</li>' +
     '<li>You are accurate with detail and methodical about records.</li>' +

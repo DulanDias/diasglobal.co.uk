@@ -180,7 +180,7 @@ function buildSummary(state: FormState): string {
   const audience = AUDIENCES.find((a) => a.mode === state.mode)
   const lines: string[] = []
 
-  lines.push('ISLAND MERCHANT — ENQUIRY')
+  lines.push('ISLAND MERCHANT ENQUIRY')
   lines.push(`Type: ${audience?.summaryType ?? state.mode}`)
   lines.push(`Page: ${IM_PAGE_URL}`)
   lines.push('')
@@ -217,7 +217,7 @@ function buildSummary(state: FormState): string {
       for (const p of chosen) {
         const n = nums[p.slug]
         lines.push(
-          `${p.summaryLabel} — ${n} pack${n === 1 ? '' : 's'} — ${formatWeight(n * p.packWeightGrams)}`
+          `${p.summaryLabel}: ${n} pack${n === 1 ? '' : 's'}, ${formatWeight(n * p.packWeightGrams)}`
         )
       }
     }
@@ -587,7 +587,7 @@ export default function InterestForm() {
           className={`im-on-dark rounded-2xl border border-[var(--im-gold,#b08848)] bg-[var(--im-brown,#3b2a14)] p-8 text-[var(--im-cream,#faf7f0)] ${focusRing}`}
         >
           <h3 className="text-2xl font-semibold text-[var(--im-gold,#b08848)]">
-            Thank you — your enquiry is with us.
+            Thank you. Your enquiry is with us.
           </h3>
           <p className="mt-3 max-w-prose leading-relaxed">
             We have your {audience.summaryType.toLowerCase()} enquiry and will reply by email. The
@@ -929,7 +929,7 @@ export default function InterestForm() {
                 ))}
               </select>
               <p id="im-orderFrequency-hint" className={hintClass}>
-                A rough answer is fine — nothing here commits you to anything.
+                A rough answer is fine, and nothing here commits you to anything.
               </p>
             </div>
           </div>
@@ -943,7 +943,7 @@ export default function InterestForm() {
             </legend>
             <p id="im-quantities-hint" className={`${hintClass} mb-4 mt-0`}>
               {state.mode === 'wholesale'
-                ? 'Trade orders are in the same sealed retail packs — not cases, not bulk kilos. Give us an indicative number.'
+                ? 'Trade orders are in the same sealed retail packs, not cases and not bulk kilos. Give us an indicative number.'
                 : 'Indicative only. Nothing is charged and nothing is ordered yet.'}
             </p>
 
@@ -991,7 +991,7 @@ export default function InterestForm() {
               aria-live="polite"
               className="mt-5 border-t border-[var(--im-gold,#b08848)] pt-4 text-base font-semibold text-[var(--im-ink,#3b2a14)]"
             >
-              Total: {totalPacks} pack{totalPacks === 1 ? '' : 's'} — {formatWeight(totalGrams)}
+              Total: {totalPacks} pack{totalPacks === 1 ? '' : 's'}, {formatWeight(totalGrams)}
             </p>
 
             {/* Rendered so the totals are in the payload even if fd.set is bypassed. */}
@@ -1022,7 +1022,7 @@ export default function InterestForm() {
               className={`${fieldClass(false)} resize-y`}
             />
             <p id="im-otherProducts-hint" className={hintClass}>
-              Sri Lankan products you cannot get here — spices, coconut products, teas, preserves.
+              Sri Lankan products you cannot get here: spices, coconut products, teas, preserves.
               This genuinely shapes what we bring in.
             </p>
           </div>
@@ -1124,7 +1124,7 @@ export default function InterestForm() {
                 className={fieldClass(false)}
               />
               <p id="im-monthlyCapacity-hint" className={hintClass}>
-                In whatever unit you work in — kilos, packs, litres.
+                In whatever unit you work in: kilos, packs, litres.
               </p>
             </div>
 
@@ -1171,7 +1171,7 @@ export default function InterestForm() {
               />
               <p id="im-certifications-hint" className={hintClass}>
                 Any food-safety, phytosanitary or export-registration documentation you already
-                hold — or none yet, which is a perfectly normal answer.
+                hold, or none yet, which is a perfectly normal answer.
               </p>
             </div>
           </div>
@@ -1212,7 +1212,7 @@ export default function InterestForm() {
             anyone else for their own marketing. This form is delivered through Formspree, a service
             based in the United States, so your details are transferred outside the UK under
             appropriate safeguards. We keep enquiries for up to 24 months unless we are working
-            together. You can ask to see, correct or delete your details at any time — see our{' '}
+            together. You can ask to see, correct or delete your details at any time. See our{' '}
             <Link
               href="/privacy-policy"
               className="font-semibold text-[var(--im-accent,#8b6b39)] underline underline-offset-2"
@@ -1224,7 +1224,7 @@ export default function InterestForm() {
               <ObfuscatedEmail
                 user={IM_EMAIL_USER}
                 domain={IM_EMAIL_DOMAIN}
-                subject="Data protection request — Island Merchant"
+                subject="Data protection request: Island Merchant"
                 label="the Island Merchant address"
                 className="font-semibold text-[var(--im-accent,#8b6b39)] underline underline-offset-2"
                 showAddress
@@ -1295,7 +1295,7 @@ export default function InterestForm() {
                 We could not send that. Nothing has been lost.
               </p>
               <p className="mt-2 text-sm leading-relaxed text-[var(--im-ink,#3b2a14)]">
-                Your answers are still in the form — press “Send my enquiry” again to retry.
+                Your answers are still in the form. Press “Send my enquiry” again to retry.
                 {mailto ? ' Or send it as an email instead:' : ''}
               </p>
               {/* The address as selectable text, not only inside a mailto: href. A browser with
