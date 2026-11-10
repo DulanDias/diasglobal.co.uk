@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { FOOTER_NAV, isCurrentPath } from '@/lib/navigation'
+import { OPEN_COOKIE_SETTINGS_EVENT } from '@/lib/analytics'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -68,6 +69,13 @@ export default function Footer() {
             <Link href="/terms-of-use" className="legal-link">
               Terms of Use
             </Link>
+            <button
+              type="button"
+              className="legal-link"
+              onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS_EVENT))}
+            >
+              Cookie Settings
+            </button>
           </div>
         </div>
 

@@ -136,17 +136,8 @@ export default function RootLayout({
         <meta name="business:contact_data:postal_code" content="WC2H 9JQ" />
         <meta name="business:contact_data:country_name" content="United Kingdom" />
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FH5W6ETZKR" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-FH5W6ETZKR');
-            `,
-          }}
-        />
+        {/* Google Analytics is deliberately absent here: CookieConsent loads it
+            only after the visitor opts in. See src/lib/analytics.ts. */}
       </head>
       <body className={`${sora.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <SiteJsonLd />

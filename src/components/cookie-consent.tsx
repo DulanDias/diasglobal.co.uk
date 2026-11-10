@@ -2,79 +2,59 @@
 
 import { useState, useEffect } from 'react'
 import { X, Cookie, Settings, Shield, BarChart3 } from 'lucide-react'
-
-interface CookiePreferences {
-  necessary: boolean
-  analytics: boolean
-  marketing: boolean
-}
+import {
+  ALL_ACCEPTED,
+  NECESSARY_ONLY,
+  OPEN_COOKIE_SETTINGS_EVENT,
+  applyConsent,
+  readStoredConsent,
+  storeConsent,
+  type CookiePreferences,
+} from '@/lib/analytics'
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false)
   const [showPreferences, setShowPreferences] = useState(false)
-  const [preferences, setPreferences] = useState<CookiePreferences>({
-    necessary: true, // Always true, can't be disabled
-    analytics: false,
-    marketing: false
-  })
+  const [preferences, setPreferences] = useState<CookiePreferences>(NECESSARY_ONLY)
 
   useEffect(() => {
-    // Check if user has already made a choice
-    const consent = localStorage.getItem('cookie-consent')
-    if (!consent) {
-      // Show popup after a short delay
-      const timer = setTimeout(() => {
-        setIsVisible(true)
-      }, 2000)
-      return () => clearTimeout(timer)
+    const stored = readStoredConsent()
+    let timer: ReturnType<typeof setTimeout> | undefined
+    if (stored) {
+      // Returning visitor: honour their earlier choice without asking again.
+      setPreferences(stored)
+      applyConsent(stored)
+    } else {
+      // No choice yet: analytics stays off. Show the popup after a short delay.
+      timer = setTimeout(() => setIsVisible(true), 2000)
+    }
+
+    // The footer's "Cookie Settings" link reopens the settings so consent can
+    // be withdrawn as easily as it was given.
+    const openSettings = () => {
+      setPreferences(readStoredConsent() ?? NECESSARY_ONLY)
+      setShowPreferences(true)
+      setIsVisible(true)
+    }
+    window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, openSettings)
+
+    return () => {
+      if (timer) clearTimeout(timer)
+      window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, openSettings)
     }
   }, [])
 
-  const acceptAll = () => {
-    const allAccepted = {
-      necessary: true,
-      analytics: true,
-      marketing: true
-    }
-    localStorage.setItem('cookie-consent', JSON.stringify(allAccepted))
-    localStorage.setItem('cookie-preferences', JSON.stringify(allAccepted))
+  const commit = (prefs: CookiePreferences) => {
+    storeConsent(prefs)
+    setPreferences(prefs)
+    applyConsent(prefs)
     setIsVisible(false)
-    // Here you would typically initialize analytics and marketing cookies
-    initializeCookies(allAccepted)
+    setShowPreferences(false)
   }
 
-  const acceptNecessary = () => {
-    const necessaryOnly = {
-      necessary: true,
-      analytics: false,
-      marketing: false
-    }
-    localStorage.setItem('cookie-consent', JSON.stringify(necessaryOnly))
-    localStorage.setItem('cookie-preferences', JSON.stringify(necessaryOnly))
-    setIsVisible(false)
-    initializeCookies(necessaryOnly)
-  }
-
-  const savePreferences = () => {
-    localStorage.setItem('cookie-consent', JSON.stringify(preferences))
-    localStorage.setItem('cookie-preferences', JSON.stringify(preferences))
-    setIsVisible(false)
-    initializeCookies(preferences)
-  }
-
-  const initializeCookies = (prefs: CookiePreferences) => {
-    // Initialize Google Analytics if analytics is accepted
-    if (prefs.analytics) {
-      // Add your Google Analytics initialization here
-      console.log('Analytics cookies initialized')
-    }
-    
-    // Initialize marketing cookies if accepted
-    if (prefs.marketing) {
-      // Add your marketing cookie initialization here
-      console.log('Marketing cookies initialized')
-    }
-  }
+  const acceptAll = () => commit(ALL_ACCEPTED)
+  const acceptNecessary = () => commit(NECESSARY_ONLY)
+  const savePreferences = () => commit(preferences)
 
   const togglePreference = (type: keyof CookiePreferences) => {
     if (type === 'necessary') return // Can't disable necessary cookies

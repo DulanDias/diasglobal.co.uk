@@ -191,7 +191,7 @@ export default function PrivacyPolicyPage() {
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-accent mb-6 pb-2 border-b-2 border-accent">10. Cookies and Tracking</h2>
                 <p className="text-text-muted leading-relaxed">
-                  We use cookies and similar technologies to enhance your browsing experience. You can control cookie settings through your browser preferences.
+                  We use cookies and similar technologies to enhance your browsing experience. Analytics cookies (Google Analytics) are only set if you accept them. You can change or withdraw your choice at any time using the Cookie Settings link at the foot of every page, or control cookies through your browser preferences.
                 </p>
               </section>
 
